@@ -9,7 +9,7 @@ include '../actions/show.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Users</title>
-    <link rel="stylesheet" href="http://localhost:8080/practice/demo/styles/display_style.css">
+    <link rel="stylesheet" href="http://localhost:8080/practice/programs_prac/demo/styles/display_style.css">
 </head>
 <body>
     <h2>List of Users: </h2>

@@ -9,7 +9,7 @@ include '../actions/insert.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="http://localhost:8080/practice/demo/styles/register_style.css">
+    <link rel="stylesheet" href="http://localhost:8080/practice/programs_prac/demo/styles/register_style.css">
 </head>
 <body>
     <form action="register.php" method="post">
