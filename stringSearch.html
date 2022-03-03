@@ -1,0 +1,37 @@
+<html>
+<body>
+
+<h3>JavaScript String Search</h3>
+
+<p id = 1></p> <p id = 2></p> <p id = 3></p> <p id = 4></p> <p id = 5></p>
+<p id = 6></p> <p id = 7></p> <p id = 8></p> <p id = 9></p> <p id = 10></p>
+<p id = 11></p> <p id = 12></p> <p id = 13></p> <p id = 14></p> <p id = 15></p> 
+<p id = 16></p> <p id = 17></p> <p id = 18></p> <p id = 19></p> <p id = 20></p> 
+
+
+<script>
+let str="Please 'Be Please!'";
+document.getElementById(1).innerHTML = str.indexOf("Please");
+document.getElementById(2).innerHTML = str.lastIndexOf("Please");
+document.getElementById(3).innerHTML = str.indexOf("may");
+document.getElementById(4).innerHTML = str.lastIndexOf("may");
+document.getElementById(5).innerHTML = str.indexOf("e",3);
+document.getElementById(6).innerHTML = str.lastIndexOf("e",7);
+document.getElementById(7).innerHTML = str.search("Please");
+document.getElementById(8).innerHTML = str.match(/se/g);
+document.getElementById(9).innerHTML = str.includes("eas");
+document.getElementById(10).innerHTML = str.includes("Be",9);//search the word from 9th position
+document.getElementById(11).innerHTML = str.startsWith("Plea");
+document.getElementById(12).innerHTML = str.startsWith("le");
+document.getElementById(13).innerHTML = str.startsWith("ea",13);
+document.getElementById(14).innerHTML = str.startsWith("ea",4);
+document.getElementById(15).innerHTML = str.endsWith("!'");
+document.getElementById(16).innerHTML = str.endsWith("Please",6);
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h3>JavaScript Arrays</h3>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p><p id="f"></p>
+        <p id="g"></p><p id="h"></p><p id="i"></p><p id="j"></p><p id="k"></p><p id="l"></p>
+        <p id="m"></p><p id="n"></p><p id="o"></p><p id="p"></p><p id="q"></p><p id="r"></p>
+        <p id="s"></p><p id="t"></p><p id="u"></p><p id="v"></p><p id="w"></p><p id="x"></p>
+        <p id="y"></p><p id="z"></p><p id="aa"></p><p id="bb"></p><p id="cc"></p><p id="dd"></p>
+        <p id="ee"></p><p id="ff"></p><p id="gg"></p><p id="hh"></p><p id="ii"></p><p id="jj"></p>
+        <p id="kk"></p>
+
+        <script>
+            const flowers = ["Lily","Rose", "Lotus"];
+            document.getElementById("a").innerHTML=flowers;
+            document.getElementById("b").innerHTML=flowers[2];
+            flowers[0]="Orchids";
+            flowers[3]="Sunflower";
+            document.getElementById("c").innerHTML=flowers;
+            flowers[4]=Date();
+            document.getElementById("d").innerHTML=flowers;
+            document.getElementById("e").innerHTML="length of array: "+flowers.length;
+            document.getElementById("f").innerHTML=flowers[flowers.length-2];
+            document.getElementById("g").innerHTML="Sorted array: "+flowers.sort();
+            let fln=flowers.length;
+            let text="<ol>";
+            for(i=0;i<fln;i++) {
+                text += "<li>" +flowers[i]+ "</li>";
+            }
+            text += "</ol>";
+            document.getElementById("h").innerHTML=text;
+            let text1 = "<ul>";
+            flowers.forEach(func);
+            text1 += "</ul>";
+            document.getElementById("i").innerHTML = text1;
+
+            function func(value) {
+            text1 += "<li>" + value + "</li>";
+            } 
+            flowers.push("Dahlia");
+            document.getElementById("j").innerHTML = flowers;
+            document.getElementById("k").innerHTML = flowers.join("-");
+            document.getElementById("l").innerHTML = flowers.pop();
+            document.getElementById("m").innerHTML = flowers;
+            document.getElementById("n").innerHTML = flowers.shift();
+            document.getElementById("o").innerHTML = flowers;
+            flowers.unshift("Daisy");
+            document.getElementById("p").innerHTML = flowers;
+            document.getElementById("q").innerHTML = "4th element: "+flowers[3];
+            delete flowers[3];
+            document.getElementById("r").innerHTML = "4th element: "+flowers[3];
+            const fruits=["Apple", "Mango"];
+            document.getElementById("s").innerHTML = flowers.concat(fruits);
+            const color=["Red", "Green", "Blue"];
+            document.getElementById("t").innerHTML = flowers.concat(fruits,color);
+            document.getElementById("u").innerHTML = fruits.concat("Banana");
+            fruits.splice(2,1,"Kiwi","Orange");
+            document.getElementById("v").innerHTML = fruits;
+            flowers.splice(3,1);
+            document.getElementById("w").innerHTML = flowers;
+            let cut = flowers.slice(2);
+            document.getElementById("x").innerHTML = cut;
+            let sl=flowers.slice(1,2);
+            document.getElementById("y").innerHTML = sl;
+            document.getElementById("z").innerHTML = "Reversed array: "+color.reverse();
+            const num=[20,16,38,11,1010,100,10,28,56,4000];
+            document.getElementById("aa").innerHTML = num;
+            document.getElementById("bb").innerHTML = num.sort();
+            document.getElementById("cc").innerHTML = num.sort(function(a,b){return a-b});
+
+            const num2=num.map(mult);
+            function mult(value){
+                return value*2;
+            }
+            document.getElementById("dd").innerHTML = num2;
+            const num3=num2.filter(filt);
+            function filt(value) {
+                return value>2000;
+            }
+            document.getElementById("ee").innerHTML = num3;
+            let sum=num.reduceRight(sm,5000);
+            function sm(total, value) {
+                return total + value;
+            }
+            document.getElementById("ff").innerHTML = "The sum is "+sum;
+            document.getElementById("gg").innerHTML = num2.every(filt);
+            document.getElementById("hh").innerHTML = num2.some(filt);
+            document.getElementById("ii").innerHTML = color.indexOf("Green")+1;
+            document.getElementById("jj").innerHTML = num2.find(filt);
+            document.getElementById("kk").innerHTML = num2.findIndex(filt);
+
+        </script>
+    </body>
+</html>

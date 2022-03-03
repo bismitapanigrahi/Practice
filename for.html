@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <h2>JavaScript for loop</h2>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p>
+
+        <script>
+            let txt="";
+            for (let i = 0; i < 40; i+=5) {
+                txt+="The Number is: "+i+"<br>";
+            }
+            document.getElementById("a").innerHTML = txt;
+
+            const color=["Blue","Green","Yellow"];
+            let i, len, text;
+            for (i=0, len=color.length, text=""; i<len; i++) {
+                text+=color[i]+"<br>";
+            }
+            document.getElementById("b").innerHTML=text;
+
+            let cl="";
+            for (let x in color) {
+                cl+=color[x]+" ";
+            }
+            document.getElementById("c").innerHTML = cl;
+
+            const num=[23,45,87,56];
+            let n="";
+            num.forEach(func);
+            function func(value) {
+                n+=value + " ";
+            }
+            document.getElementById("d").innerHTML=n;
+
+            let name="Bismita";
+            let txt1="";
+            for (let x of name) {
+                txt1+=x+" ";
+            } 
+            document.getElementById("e").innerHTML=txt1;
+        </script>
+    </body>
+</html>

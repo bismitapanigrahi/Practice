@@ -1,0 +1,48 @@
+<html>
+    <body>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p><p id="f"></p>
+        <p id="g"></p><p id="h"></p><p id="i"></p><p id="j"></p><p id="k"></p><p id="l"></p>
+        <p id="m"></p><p id="n"></p><p id="o"></p><p id="p"></p><p id="q"></p><p id="r"></p>
+        <p id="s"></p><p id="t"></p><p id="u"></p><p id="v"></p><p id="w"></p><p id="x"></p>
+        <p id="y"></p><p id="z"></p><p id="aa"></p><p id="bb"></p>
+
+        <script>
+            let msec = Date.parse("15 Feb 2022");
+            const d = new Date(msec);
+            document.getElementById("a").innerHTML = msec;
+            document.getElementById("b").innerHTML = d;
+            const gt = new Date();
+            document.getElementById("c").innerHTML = gt.getTime();
+            document.getElementById("d").innerHTML = gt.getFullYear();
+            document.getElementById("e").innerHTML = gt.getMonth()+1;
+            document.getElementById("f").innerHTML = gt.getDate();
+            document.getElementById("g").innerHTML = gt.getHours();
+            document.getElementById("h").innerHTML = gt.getMinutes();
+            document.getElementById("i").innerHTML = gt.getSeconds();
+            document.getElementById("j").innerHTML = gt.getMilliseconds();
+            document.getElementById("k").innerHTML = gt.getDay();
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            document.getElementById("l").innerHTML = months[gt.getMonth()];
+            document.getElementById("m").innerHTML = days[gt.getDay()];
+            gt.setFullYear(2024);
+            document.getElementById("n").innerHTML = gt;
+            gt.setFullYear(2024, 11, 4);
+            document.getElementById("o").innerHTML = gt;
+            gt.setMonth(17);
+            document.getElementById("p").innerHTML = gt;
+            gt.setDate(16);
+            document.getElementById("q").innerHTML = gt;
+            gt.setDate(gt.getDate()+70);
+            document.getElementById("r").innerHTML = gt;
+            gt.setHours(24);
+            document.getElementById("s").innerHTML = gt;
+            gt.setMinutes(70);
+            document.getElementById("t").innerHTML = gt;
+            gt.setSeconds(80);
+            document.getElementById("u").innerHTML = gt;
+            
+
+        </script>
+    </body>
+</html>

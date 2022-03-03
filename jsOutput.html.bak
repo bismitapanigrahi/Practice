@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Using innerHTML <br> 24*25=</p>
+<p id="first"></p>
+
+<p>Using windows.alert (skip the 'windows' keyword) <br> Will display Thank You in alert</p>
+
+<p>Using document.write <br>It should be used after whole html document is loaded. 
+<br> 284574/89=</p>
+
+<script>
+document.getElementById("first").innerHTML=24*25;
+alert("Thank You");
+document.write(284574/89);
+
+</script>
+
+</body>
+</html>

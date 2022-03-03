@@ -1,0 +1,83 @@
+<html>
+<body>
+
+<h3>JavaScript Data Types</h3>
+
+<p id=0></p>
+<p id=1></p>
+<p id=2></p>
+<p id=3></p>
+<p id=4></p>
+<p id=5></p>
+<p id=6></p>
+<p id=7></p>
+<p id=8></p>
+<p id=9></p>
+
+<script>
+let x;
+document.getElementById(0).innerHTML = x;
+
+x=4;
+document.getElementById(1).innerHTML = x;
+
+x="Hi";
+document.getElementById(2).innerHTML = x;
+
+name='JavaScript';
+document.getElementById(3).innerHTML = x + " " +name;
+
+a="How's";
+b="'Sunny' right now?";
+c='"Sunny" is recovering..'
+document.getElementById(4).innerHTML = a+" "+b+"<br>"+c;
+
+pi=3.14;
+a1=245.00;
+a2=245.98;
+a3=245
+l=1453e6;
+l1=1453e-6;
+document.getElementById(5).innerHTML = pi+"<br>"+a1+"<br>"+a2+"<br>"+a3+"<br>"+l+"<br>"+l1;
+
+document.getElementById(6).innerHTML = (a1==a2) +"<br>"+ (a1==a3);
+
+flower = ["Rose", "Lotus", "Lily"];
+document.getElementById(7).innerHTML = flower[2];
+
+colors = {
+Rose : "Red",
+Lotus : "Pink",
+Lily : "White"
+};
+document.getElementById(8).innerHTML = 
+"Rose is "+colors.Rose+"<br>"+
+"Lotus is "+colors.Lotus+"<br>"+
+"Lily is "+colors.Lily;
+
+let r;
+r1 = undefined;
+r2 = "";
+r3 = "undefined";
+document.getElementById(9).innerHTML = 
+typeof r +"<br>"+ 
+typeof r1 +"<br>"+ 
+typeof r2 +"<br>"+ 
+typeof r3 +"<br>"+ 
+typeof (3) +"<br>"+ 
+typeof (3+5) +"<br>"+ 
+typeof ("abc") +"<br>"+ 
+typeof x +"<br>"+ 
+typeof c +"<br>"+ 
+typeof pi +"<br>"+ 
+typeof a1 +"<br>"+ 
+typeof a2 +"<br>"+ 
+typeof a3 +"<br>"+ 
+typeof l +"<br>"+ 
+typeof flower +"<br>"+ 
+typeof colors;
+
+</script>
+
+</body>
+</html>

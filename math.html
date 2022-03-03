@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p><p id="f"></p><p id="g"></p>
+        <p id="h"></p><p id="i"></p><p id="j"></p><p id="k"></p><p id="l"></p><p id="m"></p><p id="n"></p>
+        <p id="o"></p><p id="p"></p><p id="q"></p><p id="r"></p><p id="s"></p><p id="t"></p>
+        <button onclick="document.getElementById('u').innerHTML=ran(20,80)">Random</button><p id="u"></p>
+
+        <script>
+            document.getElementById("a").innerHTML= Math.round(4.9);
+            document.getElementById("b").innerHTML= Math.round(4.2);
+            document.getElementById("c").innerHTML= Math.ceil(4.4);
+            document.getElementById("d").innerHTML= Math.ceil(-4.4);
+            document.getElementById("e").innerHTML= Math.floor(4.7);
+            document.getElementById("f").innerHTML= Math.floor(-4.7);
+            document.getElementById("g").innerHTML= Math.trunc(4.4);
+            document.getElementById("h").innerHTML= Math.sign(-4.7);
+            document.getElementById("i").innerHTML= Math.sign(4.4);
+            document.getElementById("j").innerHTML= Math.sign(0);
+            document.getElementById("k").innerHTML= Math.pow(28,2);
+            document.getElementById("l").innerHTML= Math.sqrt(5677);
+            document.getElementById("m").innerHTML= Math.abs(-4.7);
+            document.getElementById("n").innerHTML= Math.sin(90*Math.PI/180);
+            document.getElementById("o").innerHTML= Math.cos(0*Math.PI/180);
+            document.getElementById("p").innerHTML= Math.min(20,0.1,0.001,90,80,-1.2);
+            document.getElementById("q").innerHTML= Math.max(20,0.1,0.001,90,80,-1.2);
+            document.getElementById("r").innerHTML= Math.random();
+            document.getElementById("s").innerHTML= Math.floor(Math.random()*101);
+            document.getElementById("t").innerHTML= Math.floor(Math.random()*100)+45;
+            function ran(min,max){
+                return Math.floor(Math.random()*(max-min))+min;
+            }
+        </script>
+    </body>
+</html>

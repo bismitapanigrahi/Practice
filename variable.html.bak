@@ -1,0 +1,43 @@
+<html>
+<body>
+<h3>Types of Variable declaraction</h3>
+<p id="no"></p>
+<p id="var"></p>
+<p id="demo"></p>
+<p id="let"></p>
+<p id="const"></p>
+<p id="const1"></p>
+
+<script>
+carName="Volvo";
+document.getElementById("no").innerHTML = carName;
+
+var carName="Toyota";
+document.getElementById("var").innerHTML = carName;
+
+//let carName="Saab"
+//document.getElementById("demo").innerHTML = carName;
+
+let x = 45 + 6;
+{
+let x = 25*45;
+document.getElementById("let").innerHTML = x;
+}
+document.getElementById("let").innerHTML = x;
+
+const fruits=["Orange"," Banana"," Guava"];
+fruits[1]=" Grapes";
+fruits.push(" Papaya");
+document.getElementById("const").innerHTML = fruits;
+
+const fruit={name:"Apple", color:"Green"};
+fruit.color="Red";
+fruit.season="Around September, October";
+document.getElementById("const1").innerHTML = fruit.season;
+
+
+
+</script>
+
+</body>
+</html>

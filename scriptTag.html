@@ -1,0 +1,37 @@
+<html>
+<head>
+<script>
+function myFunction(){
+	document.getElementById("demo1").innerHTML="Home:)";
+}
+</script>
+</head>
+<body>
+
+<h2>JavaScript in Body</h2>
+<p id="demo"></p>
+
+
+<p>JavaScript using function in head</p>
+<p id="demo1">House</p>
+<button type="button" onclick="myFunction()">Try it!</button>
+
+<p>JavaScript using function in body</p>
+<p id="demo3">Beautiful</p>
+<button type="button" onclick="My_function()">Try this</button>
+
+<h4>External JavaScript</h4>
+<p id="demo4">Empty House</p>
+<button type="button" onclick="my_function()">Want to change?</button>
+
+<script>document.getElementById("demo").innerHTML="Inside Script tag" </script>
+
+<script>
+function My_function(){
+	document.getElementById("demo3").innerHTML="Pretty!!";
+}
+</script>
+
+<script src="ExtScript.js"></script>
+</body>
+</html>

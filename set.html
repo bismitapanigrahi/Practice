@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <h2>JavaScript Sets</h2>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p>
+
+        <script>
+            const letters=new Set(["Abc", "Pqr"]);
+            let txt=""
+            for(let l of letters){
+                txt+=l+" ";
+            }
+            document.getElementById("a").innerHTML=txt;
+            document.getElementById("b").innerHTML="Size of the set is: "+letters.size;
+            letters.add("Mno");
+            document.getElementById("c").innerHTML="Size of the set after adding one element is: "+letters.size;
+            const a="Tuv";
+            letters.add(a);
+            document.getElementById("d").innerHTML="Size of the set after adding one more element is: "+letters.size;
+            let text="";
+            letters.forEach(function(value){
+                text+=value+" ";
+            })
+            document.getElementById("e").innerHTML=text;
+        </script>
+    </body>
+</html>

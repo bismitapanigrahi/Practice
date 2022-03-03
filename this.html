@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <h2>The JavaScript this Keyword</h2>
+
+        <button onclick="this.style.display='none'">Click to Vanish Me!</button>
+
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p>
+
+        <script>
+            const detail = {
+                firstName: "Rudra",
+                lastName: "Kumar",
+                age: 34,
+                fullName: function() {
+                    return this.firstName+" "+this.lastName+" Age: "+this.age;
+                }
+            };
+            document.getElementById("a").innerHTML=detail.fullName();
+
+            const detail1 = {
+                firstName: "Raghav",
+                lastName: "Kundra",
+                age: 28,
+            };
+            let x = detail.fullName.call(detail1);
+            document.getElementById("b").innerHTML=x;
+
+            const detail2 = {
+                firstName: "Aruna",
+                lastName: "Bedi",
+                age: 23,
+            };
+            let name = detail.fullName.bind(detail2);
+            document.getElementById("c").innerHTML=name();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <h2>JavaScript Map</h2>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p>
+        <p id="f"></p><p id="g"></p><p id="h">
+        <script>
+            const items=new Map([
+                ["Dal",120],
+                ["Rice",260]
+            ]);
+            document.getElementById("a").innerHTML="Size of map: "+items.size;
+            document.getElementById("b").innerHTML="Value of Dal: "+items.get("Dal");
+            items.set("Almond",360);
+            document.getElementById("c").innerHTML="After adding one element: "+items.size;
+            items.set("Dal",160);
+            document.getElementById("d").innerHTML="Value of Dal after change: "+items.get("Dal");
+            items.delete("Rice");
+            document.getElementById("e").innerHTML="Size of map after deleteing an element: "+items.size;
+            document.getElementById("f").innerHTML="Whether the deleted item exists? "+items.has("Rice");
+
+            let txt="";
+            items.forEach (function (value, key){
+                txt+=key+"="+value+"<br>";
+            })
+            document.getElementById("g").innerHTML=txt;
+
+            let text="";
+            for (x of items){
+                text+=x+"<br>";
+            }
+            document.getElementById("h").innerHTML=text;
+        </script>
+    </body>
+</html>

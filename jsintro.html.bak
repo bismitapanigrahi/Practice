@@ -1,0 +1,27 @@
+<html>
+<body>
+<h2>JavaScript can do following things:-</h2>
+<p id="demo">JavaScript can change HTML content.</p>
+<button type="button" onclick= 'document.getElementById("demo").innerHTML="Hello JavaScript!"'>Click Me!</button>
+<br><br>
+<button type="button" onclick= "document.getElementById('demo').innerHTML='Welcome'">Click Here!</button> 
+
+<p> JavaScript can change HTML attribute values. <br>
+In this case JavaScript changes the value of the src(source) attribute of an image.</p>
+<button onclick="document.getElementById('myImage').src='Smiling_face.jpg'">Smile</button>
+<img id="myImage" src="Smiling_large.png" style="width:100px">
+<button onclick="document.getElementById('myImage').src='Smiling_large.png'">Be Happy</button>
+
+<p id="demo1">JavaScript can change the style of an HTML element.</p>
+<button type="button" onclick="document.getElementById('demo1').style.fontSize='20px'">Click</button>
+
+<p>JavaScript can hide HTML elements.</p>
+<p id="demo2"> Hello JS</p>
+<button type="button" onclick="document.getElementById('demo2').style.display='none'">Hide</button>
+
+<p>JavaScript can show hidden HTML elements.</p>
+<button type="button" onclick="document.getElementById('demo2').style.display='block'">Show</button>
+
+
+</body>
+</html>

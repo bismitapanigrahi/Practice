@@ -1,0 +1,26 @@
+<html>
+<body>
+
+<h3>JavaScript Objects</h3>
+
+<p id="ob"></p>
+
+<script>
+
+const person = {
+	firstName: "Radhey",
+	middleName: "Shyam",
+	lastName: "Verma",
+	age:68,
+	details: function(){
+		return this.firstName + " " + this.middleName + " " + this.lastName;
+	}
+};
+
+document.getElementById("ob").innerHTML = "<b>Details:</b> <br>Name: "+person.details()+"<br>Age: "+person.age;
+
+
+</script>
+
+</body>
+</html>

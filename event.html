@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<h3>JavaScript Events</h3>
+<p id="demo"></p>
+<button onclick="document.getElementById('demo').innerHTML=Date()">Current Time</button>
+<br>
+<br>
+
+<button onclick="this.innerHTML=Date()">Time</button>
+<br>
+
+<p id="click"></p>
+<button onclick="date()">Date</button>
+
+<script>
+
+function date(){
+	document.getElementById("click").innerHTML = Date();
+}
+
+</script>
+
+</body>
+</html>

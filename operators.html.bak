@@ -1,0 +1,42 @@
+<html>
+<body>
+
+<h3>Operators</h3>
+24^3=
+<p id="pow"></p>
+12+30*4=
+<p id="op"></p>
+(12+30)*4=
+<p id="operation"></p>
+<p id="string"></p>
+<p id="str"></p>
+<p id="value"></p>
+<p id="assign"></p>
+
+<script>
+document.getElementById("pow").innerHTML = 24**3;
+document.getElementById("op").innerHTML = 12+30*4;
+document.getElementById("operation").innerHTML = (12+30)*4;
+
+t1="Hi!"; t2="Hello..";
+document.getElementById("string").innerHTML = t1+" "+t2;
+
+t1 += " Have a nice day";
+document.getElementById("str").innerHTML = t1;
+
+let x=5+5;
+y="5"+5;
+z="Hello"+5;
+p=5+6+"5";
+q=5+5+"6"+7;
+document.getElementById("value").innerHTML = 
+"5+5="+ x + '<br>"5"+5=' + y + '<br>"Hello"+5=' + z + '<br>5+6+"5"=' + p + '<br>5+5+"6"+7=' + q;
+
+x %= 3;
+document.getElementById("assign").innerHTML = "x = 5 + 5 and x %= 3 x = "+x;
+
+</script>
+
+
+</body>
+</html>

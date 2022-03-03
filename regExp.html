@@ -1,0 +1,30 @@
+<html>
+    <body>
+        <h2>JavaScript Regular Expressions</h2>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p><p id="e"></p>
+        <p id="f"></p><p id="g"></p><p id="h"></p>
+        
+        <script>
+            let text="How's goooing there?";
+            let res=text.match(/[h]/gi);
+            document.getElementById("a").innerHTML=res;
+            let text1="7653452314";
+            let res1=text1.match(/[1-6]/g);
+            document.getElementById("b").innerHTML=res1;
+            let colors="white, green, blue, red, blue";
+            let res2=colors.match(/(white|black)/g);
+            document.getElementById("c").innerHTML=res2;
+            let text2="120 grams";
+            res3=text2.match(/\d/g);
+            document.getElementById("d").innerHTML=res3;
+            let res4=text.search(/\bgo/);
+            document.getElementById("e").innerHTML=res4;
+            let res5=text.match(/e+/g);
+            document.getElementById("f").innerHTML=res5;
+            let res6=text.match(/go*/g);
+            document.getElementById("g").innerHTML=res6;
+            let res7=text.match(/og?/g);
+            document.getElementById("h").innerHTML=res7;
+        </script>
+    </body>
+</html>

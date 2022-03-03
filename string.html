@@ -1,0 +1,55 @@
+<html>
+<body>
+
+<h3>String properties</h3>
+<p id=1></p> <p id=2></p> <p id=3></p> <p id=4></p>
+<p id=5></p> <p id=6></p> <p id=7></p> <p id=8></p>
+<p id=9></p> <p id=10></p> <p id=11></p> <p id=12></p>
+<p id=13></p> <p id=14></p> <p id=15></p> <p id=16></p>
+<p id=17></p> <p id=18></p> <p id=19></p> <p id=20></p>
+<p id=21></p> <p id=22></p> <p id=23></p> <p id=24></p> 
+<p id=25></p> <p id=26></p> <p id=27></p> <p id=28></p>
+
+<script>
+let text="Abc Def Abc";
+document.getElementById(1).innerHTML = "Length of the string: "+text.length;
+document.getElementById(2).innerHTML = 'Let\'s celebrate';
+document.getElementById(3).innerHTML = "\"Are You Ready?\"";
+document.getElementById(4).innerHTML = "\\ - This character is called \"<b>Backslash</b>\"";
+
+//String Methods
+
+document.getElementById(5).innerHTML = text.slice(4,6);
+document.getElementById(6).innerHTML = text.slice(-4,-3);
+document.getElementById(7).innerHTML = text.slice(4);
+document.getElementById(8).innerHTML = text.slice(-4);
+document.getElementById(9).innerHTML = text.slice(2,-2);
+document.getElementById(10).innerHTML = text.substring(4); //similar to slice() except it will not take negative value
+document.getElementById(11).innerHTML = text.substr(4,1);
+document.getElementById(12).innerHTML = text.substr(2);
+document.getElementById(13).innerHTML = text.substr(-5,4);
+document.getElementById(14).innerHTML = text.replace("Abc","XYZ");
+document.getElementById(15).innerHTML = text.replace(/ABC/i,"XYZ!!!!"); //case insencitive replace
+document.getElementById(16).innerHTML = text.replace(/ABC/gi,"XYZ"); //g-replace all the matches, i-case-insencitive
+document.getElementById(17).innerHTML = text.toUpperCase();
+document.getElementById(18).innerHTML = text.toLowerCase();
+document.getElementById(19).innerHTML = text.concat(" ","Pqrs");
+
+let text1="    !@#    ";
+let text2=text.trim();
+document.getElementById(20).innerHTML = "Given string is : "+text1+"<br>Original string length="+text1.length+
+"<br>After using trim() the length of the string is="+text2.length;
+document.getElementById(21).innerHTML = text1.padStart(15,"Pq");
+document.getElementById(22).innerHTML = text.padEnd(19," Pq");
+var y = "Rover oAbcd";
+document.getElementById(27).innerHTML = y;
+document.getElementById(28).innerHTML = y.split("o");
+document.getElementById(23).innerHTML = y.charAt(0);
+document.getElementById(24).innerHTML = y.charCodeAt(2);
+document.getElementById(25).innerHTML = y[3];
+document.getElementById(26).innerHTML = y;
+
+</script>
+
+</body>
+</html>

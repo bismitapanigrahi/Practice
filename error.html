@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <h2>JavaScript try catch</h2>
+
+        <p>Please enter your age (between 18 and 60):</p>
+
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">Test Input</button>
+
+        <p id="a"></p>
+
+        <script>
+        function myFunction() {
+        const message = document.getElementById("a");
+        message.innerHTML = "";
+        let x = document.getElementById("demo").value;
+        try { 
+            if(x == "")  throw "Input is empty";
+            if(isNaN(x)) throw "Input is not a number";
+            x = Number(x);
+            if(x > 60)   throw "Senior citizens are not eligible";
+            if(x < 18)  throw "You are not eligible";
+        }
+        catch(err) {
+            message.innerHTML = err;
+        }
+        finally {
+            document.getElementById("demo").value = "";
+        }
+        }
+        </script>
+
+    </body>
+</html>
