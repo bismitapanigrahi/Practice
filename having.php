@@ -5,13 +5,15 @@ if(!$conn) {
     die("Connect Failed: ".mysqli_connect_error());
 }
 
-$sql="SELECT cus_name, postalcode, country FROM customers limit 5";
+$sql="SELECT COUNT(odid) AS NumberOfOrderDetails ,orderid FROM orderdetails 
+GROUP BY orderid HAVING COUNT(odid) >= 2";
+
 $res=mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($res)>0) {
-    echo "<table><tr><th>CustomerName</th><th>PostalCode</th><th>Country</th></tr>";
+    echo "<table><tr><th>NumberOfOrderDetails</th><th>OrderID</th></tr>";
     while($row=mysqli_fetch_assoc($res)) {
-        echo "<tr><td>".$row["cus_name"]."</td><td>".$row["postalcode"]."</td><td>".$row["country"]."</td></tr>";
+        echo "<tr><td>".$row["NumberOfOrderDetails"]."</td><td>".$row["orderid"]."</td></tr>";
     }
     echo "</table>";
 } else {
