@@ -1,0 +1,1 @@
+SELECT * FROM suppliers WHERE NOT country='Sweden' AND NOT country='Denmark';

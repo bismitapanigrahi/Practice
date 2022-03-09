@@ -1,0 +1,1 @@
+SELECT sname, contactname, country, phone FROM suppliers;

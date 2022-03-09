@@ -1,0 +1,1 @@
+SELECT MIN(price) AS MIN_PRICE FROM products;

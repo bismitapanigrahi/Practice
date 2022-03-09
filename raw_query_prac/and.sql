@@ -1,0 +1,1 @@
+SELECT * FROM suppliers WHERE country = 'USA' AND city = 'New Orleans';

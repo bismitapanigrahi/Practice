@@ -1,0 +1,1 @@
+UPDATE customers SET contactname = 'Shahid' WHERE cid = 14;
