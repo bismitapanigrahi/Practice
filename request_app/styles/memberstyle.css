@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+}
+a:active, a:link, a:visited, a:hover {
+    color: black;
+    text-decoration: none;
+}
+label {
+    position: absolute;
+    right: 700px;
+}
+input[type=text], input[type=email], input[type=date] {
+    position: absolute;
+    left: 590px;
+}
+span {
+    position: absolute;
+    left: 770px;
+    color: red;
+}
