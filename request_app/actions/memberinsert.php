@@ -64,8 +64,8 @@
                 $female="checked";
             }
             
-            $sql="INSERT INTO requests (fname, lname, email, dob, gender) VALUES 
-            ('".$fname."', '".$lname."', '".$email."', '".$dob."', '".$gender."')";
+            $sql="INSERT INTO requests (fname, lname, email, dob, age, gender) VALUES 
+            ('".$fname."', '".$lname."', '".$email."', '".$dob."', TIMESTAMPDIFF(YEAR, dob, CURRENT_DATE()), '".$gender."')";
             $result=$conn->query($sql);
             if($result) {
                 header("location:allMembers.php");

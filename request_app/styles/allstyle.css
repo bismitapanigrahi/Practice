@@ -24,6 +24,8 @@ tr, td {
 }
 a:active, a:link, a:visited, a:hover {
     text-decoration: none;
+}
+#a, #d {
     color: black;
 }
 #decline{
@@ -50,9 +52,20 @@ a:active, a:link, a:visited, a:hover {
     position: absolute;
     left: 990px;
 }
+#content a {
+    color: brown;
+}
 ul {
     list-style-type: none;
 }
-li {
+.link {
     text-align: left;
+}
+#note {
+    position: absolute;
+    /*left: 455px;*/
+    text-align: left;
+}
+.member_note {
+    padding-left: 17em;
 }
