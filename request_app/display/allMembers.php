@@ -14,9 +14,9 @@ include '../actions/connect.php';
     <h2>All Members: </h2>
     <div id=members>
         <ul>
-            <li><button><u><a href="member.php">Create a Member</a></u></button></li>
-            <Li><button><u><a href="approved.php">Approved Members</a></u></button></Li>
-            <li><button><u><a href="declined.php">Declined Members</a></u></button></li>
+            <li><button><a href="member.php">Create a Member</a></button></li>
+            <Li><button><a href="approved.php">Approved Members</a></button></Li>
+            <li><button><a href="declined.php">Declined Members</a></button></li>
         </ul>
     </div>
     <div id="note">
