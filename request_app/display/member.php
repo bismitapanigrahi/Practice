@@ -30,8 +30,9 @@
         <input type="radio" name="gender" id="male" value="Male" <?php echo $male; ?>>Male 
         <input type="radio" name="gender" id="female" value="Female" <?php echo $female; ?>>Female 
         <span><?php echo $gendererr; ?></span><br><br>
+        <button><a href="allMembers.php">Back</a></button>
         <button type="reset"><a href="member.php">Reset</a></button>
-        <button type="submit" name="submit">Submit</button><br>
+        <button type="submit" name="submit">Submit</button>
     </form>
 </body>
 </html>

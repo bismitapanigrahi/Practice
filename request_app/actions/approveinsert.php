@@ -3,13 +3,7 @@
     if(isset($_GET['id'])) {
         $id=$_GET['id'];
 
-        $sql="INSERT INTO approved (fname, lname, email, dob, age, gender) 
-        SELECT fname, lname, email, dob, age, gender 
-        FROM requests WHERE id=$id AND 
-        (CASE 
-         	WHEN gender='male' THEN age>=22 AND age<=38
-         	WHEN gender='female' THEN age>=26 AND age<=34
-         END)";
+        $sql="UPDATE requests SET status = 'approved' WHERE id=$id";
 
         $result=$conn->query($sql);
         if($result){

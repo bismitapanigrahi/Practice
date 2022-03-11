@@ -3,9 +3,9 @@ body {
 }
 button {
     position: absolute;
-    left: 980px;
+    left: 315px;
     border: none;
-    background-color: dodgerblue;
+    background-color: rgba(93, 95, 97, 0.788);
     padding: 5px 10px;
 }
 h2 {
