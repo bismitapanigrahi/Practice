@@ -11,13 +11,19 @@
                 $sql="UPDATE requests SET status = 'declined' WHERE id=$id";
                 $result=$conn->query($sql);
                 if($result){
-                    echo "<script>alert('Declined');</script>";
-                    echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
+                    echo "<script>alert('Declined');";
+                    //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                    echo "</script>";
+                    include '../display/allMembers.php';
+                    //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                     //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
                 }
             } else {
-                echo "<script>alert('Please check the selection process');</script>";
-                echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
+                echo "<script>alert('Please check the selection process');";
+                //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                echo "</script>";
+                include '../display/allMembers.php';
+                //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                 //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
             }
         }
@@ -26,13 +32,19 @@
                 $sql="UPDATE requests SET status = 'declined' WHERE id=$id";
                 $result=$conn->query($sql);
                 if($result){
-                    echo "<script>alert('Declined');</script>";
-                    echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
+                    echo "<script>alert('Declined');";
+                    //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                    echo "</script>";
+                    include '../display/allMembers.php';
+                    //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                     //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
                 }
             } else {
-                echo "<script>alert('Please check the selection process');</script>";
-                echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
+                echo "<script>alert('Please check the selection process');";
+                //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                echo "</script>";
+                include '../display/allMembers.php';
+                //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                 //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
             }
         }
