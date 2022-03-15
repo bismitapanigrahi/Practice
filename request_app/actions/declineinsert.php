@@ -12,17 +12,17 @@
                 $result=$conn->query($sql);
                 if($result){
                     echo "<script>alert('Declined');";
-                    //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                    echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
                     echo "</script>";
-                    include '../display/allMembers.php';
+                    //include '../display/allMembers.php';
                     //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                     //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
                 }
             } else {
                 echo "<script>alert('Please check the selection process');";
-                //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
                 echo "</script>";
-                include '../display/allMembers.php';
+                //include '../display/allMembers.php';
                 //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                 //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
             }
@@ -33,17 +33,17 @@
                 $result=$conn->query($sql);
                 if($result){
                     echo "<script>alert('Declined');";
-                    //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                    echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
                     echo "</script>";
-                    include '../display/allMembers.php';
+                    //include '../display/allMembers.php';
                     //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                     //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
                 }
             } else {
                 echo "<script>alert('Please check the selection process');";
-                //echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
+                echo "window.location.href='http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php';";
                 echo "</script>";
-                include '../display/allMembers.php';
+                //include '../display/allMembers.php';
                 //echo '<meta http-equiv="refresh" content="0; url=http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php">';
                 //header("location:http://localhost:8080/practice/programs_prac/request_app/display/allMembers.php");
             }
