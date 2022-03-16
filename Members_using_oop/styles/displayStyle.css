@@ -45,7 +45,7 @@ a:active, a:link, a:visited, a:hover {
 }
 #members ul{
     position: absolute;
-    left: 50em;
+    left: 45em;
     overflow: hidden;
     list-style-type: none;
 }

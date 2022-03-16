@@ -38,13 +38,6 @@
             include '../actions/display.php'; 
             $db=new displayRecord();
             $db->display();
-
-            if(isset($_GET['approveid'])) {
-                include '../actions/approveinsert.php'; 
-                $obj=new insertapprove();
-                $approveid=$_GET['approveid'];
-                $obj->approve($approveid);
-            }
         ?>
     </table>
     

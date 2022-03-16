@@ -1,6 +1,5 @@
 <?php
     include '../actions/insert.php';
-    $db=new insertRecord();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +14,6 @@
     <br>
     <h1>Member Creation</h1>
     <br><br>
-    <?php  
-        if(isset($_POST['submit'])) {
-            $db->insert($_POST); 
-        }
-    ?>
     <form action="create.php" method="post">
     <label for="fname">*First Name: </label>
         <input type="text" name="fname" id="fname" value="<?php echo $fname; ?>">

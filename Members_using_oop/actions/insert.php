@@ -61,26 +61,31 @@
                 $male="checked";
             }if($gender=='Female'){
                 $female="checked";
+            } 
+            class insertRecord extends dbconn {
+                public function insert($post){
+                    $fname=$post["fname"];
+                    $lname=$post["lname"];
+                    $email=$post["email"];
+                    $dob=$post["dob"];
+                    $gender=$post["gender"];
+                    $sql="INSERT INTO requests (fname, lname, email, dob, gender) VALUES 
+                    ('".$fname."', '".$lname."', '".$email."', '".$dob."', '".$gender."')";
+                    $result=$this->conn->query($sql);
+                    if($result) {
+                        echo "<script>alert('Records Inserted Successfully');";
+                        echo "window.location.href='http://localhost:8080/practice/programs_prac/Members_using_oop/display/allMembers.php';";
+                        echo "</script>";
+                    }
+                    else {
+                        echo "Failed";
+                    }
+                }
             }
+            $db=new insertRecord();
+            $db->insert($_POST);
         }
     }
-    class insertRecord extends dbconn {
-        public function insert($post){
-            $fname=$post["fname"];
-            $lname=$post["lname"];
-            $email=$post["email"];
-            $dob=$post["dob"];
-            $gender=$post["gender"];
-            $sql="INSERT INTO requests (fname, lname, email, dob, gender) VALUES 
-            ('".$fname."', '".$lname."', '".$email."', '".$dob."', '".$gender."')";
-            $result=$this->conn->query($sql);
-            if($result) {
-                echo "Inserted";
-                //header("location:allMembers.php");
-            }
-            else {
-                echo "Failed";
-            }
-        }
-    }
+    
+
 ?>
