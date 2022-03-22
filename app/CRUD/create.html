@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="CRUDstyle.css">
+    <script src="CRUDscript.js"></script>
+</head>
+<body>
+    <h2>Register Here:</h2>
+    <form action="create.html" onsubmit="return false;">
+        <label for="fname">*First Name: </label>
+        <input type="text" id="fname">
+        <label for="lname">Last Name: </label>
+        <input type="text" id="lname">
+        <label for="age">*Age: </label>
+        <input type="number" min=1 max=100 id="age">
+        <label for="gender">*Gender: </label>
+        <select id="gender">
+            <option value="">Select</option>
+            <option value="Male" id="male">Male</option>
+            <option value="Female" id="female">Female</option>
+        </select>
+        <button type="submit" onclick='manageData();'>Submit</button>
+    </form>
+
+    <div id="msg"></div>
+
+    <h3>Users:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>S.No</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="root">
+
+        </tbody>
+    </table>
+</body>
+</html>

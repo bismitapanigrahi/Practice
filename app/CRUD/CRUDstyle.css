@@ -1,0 +1,10 @@
+
+table, th, td{
+    border: solid;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 6px;
+}
+#msg {
+    color: red;
+}
