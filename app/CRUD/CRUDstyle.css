@@ -8,3 +8,16 @@ table, th, td{
 #msg {
     color: red;
 }
+
+#submit {
+    background-color: rgb(165, 163, 163);
+}
+
+#edit {
+    background-color: rgb(60, 201, 147);
+    padding: 1px 15px;
+}
+
+#delete {
+    background-color: rgb(197, 74, 74);
+}

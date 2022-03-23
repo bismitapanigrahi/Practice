@@ -1,4 +1,4 @@
-let id="";
+let id="no";
 //localStorage.clear();
 window.onload=function(){selectData();}
 
@@ -22,29 +22,27 @@ function manageData() {
         document.getElementById('msg').innerHTML="Please enter your Gender.";
     }
     else {
-        getData();
-        arr.push({fname, lname, age, gender});
-        localStorage.setItem("localData", JSON.stringify(arr));
-        /*if(id=='') {
-            let arr=getData();
-            if(arr==null) {
-                let data=[fname, lname, age, gender];
-                localStorage.setItem('crud', JSON.stringify(data));
-            } else {
-                arr.push(fname, lname, age, gender);
-                localStorage.setItem('crud', JSON.stringify(arr));
-            }
-            
-            
-        } else {
+        if(id=='no'){
+            getData();
+            arr.push({fname, lname, age, gender});
+            localStorage.setItem("localData", JSON.stringify(arr));
+            alert("Record Added Successfully");
+        }
+        else {
+            getData();
+            arr[id].fname=fname;
+            arr[id].lname=lname;
+            arr[id].age=age;
+            arr[id].gender=gender;
+            localStorage.setItem("localData", JSON.stringify(arr));
+            alert("Record Updated Successfully");
+        }
+        
 
-        }*/
         document.getElementById('fname').value = 
         document.getElementById('lname').value =
         document.getElementById('age').value =
         document.getElementById('gender').value = '';
-        alert("Records added successfully");
-        window.location.reload();
         selectData();
         
     }
@@ -60,6 +58,7 @@ function getData() {
 function selectData() {
     getData();
     var tbl=document.getElementById("root");
+    tbl.innerHTML="";
     for(i=0;i<arr.length;i++) {
         var r=tbl.insertRow();
         var cell1=r.insertCell();
@@ -67,36 +66,35 @@ function selectData() {
         var cell3=r.insertCell();
         var cell4=r.insertCell();
         var cell5=r.insertCell();
+        var cell6=r.insertCell();
         cell1.innerHTML=i+1;
-        cell2.innerHTML=arr[i].fname+" "+arr[i].lname;
-        cell3.innerHTML=arr[i].age;
-        cell4.innerHTML=arr[i].gender;
-        cell5.innerHTML="<button>Edit</button><button><a href='javascript:void(0)' onclick='deleteData(i)'>Delete</a></button>";
+        cell2.innerHTML=arr[i].fname;
+        cell3.innerHTML=arr[i].lname;
+        cell4.innerHTML=arr[i].age;
+        cell5.innerHTML=arr[i].gender;
+        cell6.innerHTML=`<button id="edit" onclick='editData(this,`+i+`)'>Edit</button> <button id="delete" onclick='deleteData(`+i+`)'>Delete</button>`;
     }
-    /*let arr=getData();
-    if(arr!=null) {
-        let html='';
-        let sno=1;
-        for(let k in arr) {
-            html=html+`<tr><td>${sno}</td><td>${arr[k]}</td></tr>`;
-            sno++;
-        }
-        document.getElementById('root').innerHTML=html;
-    }*/
 }
 
-function editData() {
-
-}
-
-function deleteData(rid) {
+function editData(td, index) {
+    id=index;
     getData();
-    /*arr.splice(rid, 1);
-    localStorage.setItem("localData", JSON.stringify(arr));
-    selectData();*/
+    selectRow = td.parentElement.parentElement;
+    document.getElementById('fname').value = selectRow.cells[1].innerHTML;
+    document.getElementById('lname').value = selectRow.cells[2].innerHTML;
+    document.getElementById('age').value = selectRow.cells[3].innerHTML;
+    document.getElementById('gender').value = selectRow.cells[4].innerHTML;
+    selectRow.cells[1].innerHTML=arr[index].fname;
+    selectRow.cells[2].innerHTML=arr[index].lname;
+    selectRow.cells[3].innerHTML=arr[index].age;
+    selectRow.cells[4].innerHTML=arr[index].gender;
 }
-/*
-function getData() {
-    let arr=JSON.parse(localStorage.getItem('crud'));
-    return arr;
-}*/
+
+function deleteData(index) {
+    getData();
+    if(confirm('Are you sure you want to delete the record?')) {
+        arr.splice(index, 1);
+        localStorage.setItem("localData", JSON.stringify(arr));
+    }
+    selectData();
+}
