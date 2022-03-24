@@ -18,6 +18,9 @@ function manageData() {
     else if(fname!='' && age=='') {
         document.getElementById('msg').innerHTML="Please enter your Age.";
     }
+    else if(fname!='' && (age<=1 || age>=100)){
+        document.getElementById('msg').innerHTML="Please enter valid Age.";
+    }
     else if(fname!='' && age!='' && gender=='') {
         document.getElementById('msg').innerHTML="Please enter your Gender.";
     }
