@@ -84,10 +84,6 @@ function editData(td, index) {
     document.getElementById('lname').value = selectRow.cells[2].innerHTML;
     document.getElementById('age').value = selectRow.cells[3].innerHTML;
     document.getElementById('gender').value = selectRow.cells[4].innerHTML;
-    selectRow.cells[1].innerHTML=arr[index].fname;
-    selectRow.cells[2].innerHTML=arr[index].lname;
-    selectRow.cells[3].innerHTML=arr[index].age;
-    selectRow.cells[4].innerHTML=arr[index].gender;
 }
 
 function deleteData(index) {
