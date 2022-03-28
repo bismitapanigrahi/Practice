@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <script>
+            class Person {
+                constructor(fname, lname) {
+                    this.fname=fname;
+                    this.lname=lname;
+                }
+                name(wish) {
+                    return this.fname+" "+this.lname+"<br>"+wish+"<br>";
+                }
+            }
+            class Details extends Person {
+                constructor(fname, lname, gender) {
+                    super(fname, lname);
+                    this.gender=gender;
+                }
+                show() {
+                    return "Name: "+this.fname+" "+this.lname+", Gender: "+this.gender+"<br>";
+                }
+            }
+
+            const detail = new Person("Ravi", "Teza");
+            document.write(detail.fname," ",detail.lname,"<br>");
+            const detail1 = new Person("Abhijeet", "Yadav");
+            document.write(detail1.name("Thank You"));
+            const detail2 = new Details("Aditi", "Rao", "Female");
+            document.write(detail2.show());
+        </script>
+    </body>
+</html>

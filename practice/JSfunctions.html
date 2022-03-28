@@ -1,0 +1,80 @@
+<html>
+<body>
+    <script>
+        //1. function declaration
+        //without parameters without return values
+        function wish() {
+            document.write("Hii<br>");
+        }
+        wish();
+
+        //without parameters with return value
+        function wishes() {
+            return "Good Morning <br>";
+        }
+        document.write(wishes());
+
+        //with parameters without return values
+        function greet(wish) {
+            document.write(wish,"<br>");
+        }
+        greet("Have a good day");
+        greet("^_^");
+
+        function sum(a,b) {
+            document.write(a+b,"<br>");
+        }
+        sum(23,13);
+        sum(26,-14);
+
+        //with parameters with return values
+        function multi(a,b) {
+            return a*b;
+        }
+        document.write(multi(23,13),"<br>");
+        document.write(multi(26,-14),"<br>");
+
+        //2. function expression
+        var wish = function() {
+            document.write("Good Evening<br>");
+        };
+        wish();
+
+        var divide = function (a,b) {
+            return a/b;
+        };
+        document.write(divide(26,13),"<br>");
+
+        /*Diffrence between function declaration and function expression is :-
+        1. syntax differs 
+        2. function declarations are hoisted not function excpressions
+        */
+
+        //3. function constructor; function keyword should be written as "Function"
+        var text = Function("{document.write('Hello<br>')}");
+        text();
+
+        var operation = Function("a", "b", "{\
+            return ((a+b)*b)\
+        }");
+        //backward slashes '\' are added to continue the string to the next line otherwise it will show error
+        document.write(operation(2,3),"<br>");
+
+        //IIFE (Immidiate Invokable Function Expression)
+        (function() {
+            document.write("How are you?<br>");
+        })();
+
+        var add = (function(a, b) {
+            return a*b;
+        })(4,5);
+        document.write(add,"<br>");
+
+        //calling a function inside another function
+        function h() {document.write("h<br>");}
+        function g() {document.write("g<br>"); h();}
+        function f() {document.write("f<br>"); g();}
+        f();
+    </script>
+</body>
+</html>
