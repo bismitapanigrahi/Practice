@@ -1,17 +1,58 @@
 <html>
     <body>
+        <p id="a"></p><p id="b"></p><p id="c"></p><p id="d"></p>
         <script>
-            setTimeout(display, 2000);
+            setTimeout(display, 1000);
 
             function display() {
-                document.write("Helllooo<br>");
+                document.getElementById("a").innerHTML="Hellooo<br>";
+                //document.write("Helllooo<br>");
             }
 
-            setTimeout(function() {show("Everyone!!!<br>");}, 3000);
+            setTimeout(function() {show("Everyone!!!<br>");}, 2000);
 
             function show(a) {
-                document.write(a);
+                document.getElementById("b").innerHTML=a+"<br>";
+                // document.write(a);
             }
+            show("Abc<br>");
+
+            // promises
+            function myDisplay(some) {
+                //document.getElementById("c").innerHTML=some+"<br>";
+                document.write(some);
+            }
+            let myPromise = new Promise(function(accept, reject) {
+                let x=0;
+
+                if(x==0) {
+                    accept("x=0<br>");
+                } else {
+                    reject("Error<br>");
+                }
+            });
+
+            myPromise.then(
+                function(value) {
+                    myDisplay(value);
+                }
+            )/*.catch(
+                function(error) {
+                    myDisplay(error);
+                }
+            )*/
+            myDisplay(24+"<br>");
+
+            //await
+            async function myDisplayer() {
+                await myPromise.then(
+                    function(value) {
+                        myDisplay(value);
+                    }
+                )
+                myDisplay(24+"<br>");
+            }
+            myDisplayer();
         </script>
     </body>
 </html>
