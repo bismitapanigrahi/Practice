@@ -1,0 +1,59 @@
+<html>
+    <body onload="msg()">
+        <h2>JavaScript HTML Events</h2>
+        <h3 onclick="this.innerHTML='Hellooo...'">Click</h3>
+        <h3 onclick="changeText(this)">Click here</h3>
+        <input type="text" id="fname" onchange="upper()">
+        <button id="btn">Show</button>
+        <p id="a"></p><br>
+        <button onmouseover="over(this)" onmouseout="out(this)">Mouse Over Me</button><br>
+        <button id="btn1">Try</button><br>
+        <p id="b"></p>
+        <button id="btn2">Numbers</button><br>
+        <p id="c"></p>
+
+        <script>
+            //Events
+            function changeText(id) {
+                id.innerHTML="How are you??";
+            }
+            document.getElementById("btn").onclick=display;
+            function upper() {
+                const x = document.getElementById("fname");
+                x.value=x.value.toUpperCase(); 
+            }
+            function display() {
+                document.getElementById("a").innerHTML=document.getElementById("fname").value;
+            }
+            function over(obj) {
+                obj.innerHTML = "Thanks for your try"
+            }
+            function out(obj) {
+                obj.innerHTML = "Mouse Over Me"
+            }
+            function msg() {
+                //alert("Thanks..")
+            }
+
+            //Event Listener
+            var abc = document.getElementById("btn1");
+            var pqr = document.getElementById("b");
+            abc.addEventListener("click", change);
+            abc.addEventListener("click", function() {alert("Hii");});
+            abc.addEventListener("mousedown", function() {pqr.innerHTML = "Having fun?";});
+            abc.addEventListener("mouseup", function() {pqr.style.visibility='hidden';});
+            function change() {
+                document.getElementById("btn1").innerHTML = "Hurraayy";
+                document.getElementById("btn1").style.color = "green";
+                document.getElementById("btn1").style.fontSize = "large";
+            }
+            //passing paramters
+            let n1=Math.random();
+            let n2=10;
+            document.getElementById("btn2").addEventListener("click", function() {multi(n1, n2);});
+            function multi(a, b) {
+                document.getElementById("c").innerHTML = a*b;
+            }
+        </script>
+    </body>
+</html>
