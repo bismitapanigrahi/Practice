@@ -1,5 +1,5 @@
 <html>
-    <body onload="msg()">
+    <body id="bdy" onload="msg()">
         <h2>JavaScript HTML Events</h2>
         <h3 onclick="this.innerHTML='Hellooo...'">Click</h3>
         <h3 onclick="changeText(this)">Click here</h3>
@@ -11,6 +11,11 @@
         <p id="b"></p>
         <button id="btn2">Numbers</button><br>
         <p id="c"></p>
+        <div id="div1">
+            <p id="d">Doing Great</p> 
+            <p id="e">Go onnn</p>   
+        </div>
+        
 
         <script>
             //Events
@@ -32,7 +37,7 @@
                 obj.innerHTML = "Mouse Over Me"
             }
             function msg() {
-                //alert("Thanks..")
+                alert("Thanks..")
             }
 
             //Event Listener
@@ -54,6 +59,23 @@
             function multi(a, b) {
                 document.getElementById("c").innerHTML = a*b;
             }
+
+            //nodes
+            const elmt = document.getElementById("b"); elmt.remove();
+            const para = document.createElement("p");
+            const node = document.createTextNode("New Insertion");
+            para.appendChild(node);
+            const element = document.getElementById("div1");
+            element.appendChild(para);
+            const para1 = document.createElement("p");
+            const node1 = document.createTextNode("Newly Inserted");
+            para1.appendChild(node1);
+            const child = document.getElementById("e");
+            element.insertBefore(para1, child);
+            const para2 = document.createElement("p");
+            const text = document.createTextNode("Replaced");
+            para2.appendChild(text);
+            element.replaceChild(para2, child);
         </script>
     </body>
 </html>
