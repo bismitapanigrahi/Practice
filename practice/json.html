@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <script>
+            const txt = '{"name":"Bismita", "city":"Rourkela"}'
+            const obj = JSON.parse(txt);
+            document.write(obj.name, " From ", obj.city, "<br>");
+            const arr = '["Ford", "BMW", "Audi"]';
+            const myArr = JSON.parse(arr);
+            document.write(myArr[0], " ", myArr[1], "<br>");
+            const obj1 = {name:"John", age: 40};
+            const jsobj = JSON.stringify(obj1);
+            document.write(jsobj,"<br>");
+            const arr1 = ["Peter", "John", "Jolly"];
+            const jsArr = JSON.stringify(arr1);
+            document.write(jsArr,"<br>")
+            localStorage.setItem("test", jsobj);
+            let text = localStorage.getItem("test");
+            let obj2 = JSON.parse(text);
+            document.write(obj2.name," Age:",obj2.age,"<br>");
+            
+        </script>
+    </body>
+</html>
