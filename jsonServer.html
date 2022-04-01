@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+            function jsObject(){
+                const x = new XMLHttpRequest();
+                x.onload = function() {
+                    const myObj = JSON.parse(this.responseText);
+                    document.write("Name: ", myObj.name, ", Age: ", myObj.age, "<br>")
+                }
+                x.open("GET", "jsonObj.txt");
+                x.send();
+            }
+            function jsArray(){
+                const y = new XMLHttpRequest();
+                y.onload = function() {
+                    const myArr = JSON.parse(this.responseText);
+                    document.write("Array: ", myArr[0], ", ", myArr[1], "<br>");
+                }
+                y.open("GET", "jsonArr.txt", true);
+                y.send();
+            }
+            jsObject();
+            jsArray();
+        </script>
+    </body>
+</html>

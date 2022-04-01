@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h2>XMLHttpRequest Object</h2>
+
+        <div id="demo">
+            <p>Let AJAX change the content.</p>
+            <button type="button" onclick="loadDoc()">Change Content</button>
+        </div>
+
+        <script>
+            function loadDoc() {
+                const x = new XMLHttpRequest();
+                x.onload = function() {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+                x.open("GET","array.php")
+                x.send();
+            }
+        </script>
+    </body>
+</html>
