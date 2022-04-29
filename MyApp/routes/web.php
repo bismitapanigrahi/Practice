@@ -35,3 +35,8 @@ Route::group(['middleware' => ['pageAccess']], function() {
 Route::view('login', 'login');
 Route::post('userReq', [Users::class, 'testRequest']);
 // Route::put('userReq', [user::class, 'testRequest']);
+
+Route::get('table', [Users::class, 'dbQueries']);
+
+Route::view('upload', 'upload');
+Route::post('upload', [Users::class, 'upload']);
