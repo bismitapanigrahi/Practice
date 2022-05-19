@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registered</title>
+    <style>
+        a:active, a:link, a:visited, a:hover {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <h1>Registered Members</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Mobile No.</th>
-            <th>Action</th>
-        </tr>
-    </table>
+   <h2>Welcome!</h2>
+   <ul>
+       <li><a href="/listUsers">List Users</a></li><br>
+       <li><a href="/create">Create Users</a></li>
+   </ul>
 </body>
 </html>

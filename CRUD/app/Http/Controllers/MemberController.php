@@ -14,7 +14,8 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        $members = DB::table('registered_members')->get();
+        return view('listUsers', ['members' => $members]);
     }
 
     /**
@@ -29,6 +30,7 @@ class MemberController extends Controller
             'email' => $request->email,
             'phno' => $request->phno,
         ]);
+        return redirect('home');
     }
 
     /**
@@ -61,7 +63,8 @@ class MemberController extends Controller
      */
     public function edit($id)
     {
-        //
+        $member = DB::table('registered_members')->find($id);
+        return view ('edit', ['member' => $member]);
     }
 
     /**
@@ -73,7 +76,12 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        DB::table('registered_members')->where('id', $id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phno' => $request->phno,
+        ]);
+        return redirect('home');
     }
 
     /**
@@ -84,6 +92,7 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('registered_members')->where('id', $id)->delete();
+        return redirect('home');
     }
 }
