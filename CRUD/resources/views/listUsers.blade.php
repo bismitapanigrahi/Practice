@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registered</title>
+    <title>List of Users</title>
     <style>
         body {
             text-align: center;
@@ -33,10 +33,39 @@
         a:active, a:link, a:visited, a:hover {
             text-decoration: none;
         }
+        #button1 {
+            position: absolute;
+            left: 40px;
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+        #button2 {
+            position: absolute;
+            left: 150px;
+        }
+        a {color: black;}
+        #edit {
+            padding-left: 14px;
+            padding-right: 14px;
+            background-color: #2196f3;
+        }
+        #delete {background-color: #d84545;}
+        #status {
+            color: #673ab7;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>Registered Members</h1>
+    <button id="button1"><a href="home">Dashboard</a></button>
+    <button id="button2"><a href="create">Create a member</a></button>
+    <br><br>
+    @if (session()->has('status'))
+        <div id="status">
+            {{session('status')}}
+        </div>
+    @endif
     <table>
         <thead>
             <tr>
@@ -48,7 +77,7 @@
             </tr>
         </thead>
         <tbody>
-            
+        @if (!$members->isEmpty())
             @foreach ($members as $member)
             <tr>
                 <td> {{$member->id}} </td>
@@ -56,11 +85,13 @@
                 <td> {{$member->email}} </td>
                 <td> {{$member->phno}} </td>
                 <td>
-                    <button><a href="{{url('/edit', $member->id)}}">Edit</a></button>
-                    <button><a href="{{url('/delete', $member->id)}}">Delete</a></button>
+                    <button id="edit"><a href="{{url('/edit', $member->id)}}">Edit</a></button>
+                    <button id="delete" onclick="return confirm('Are you sure?')"><a href="{{url('/delete', $member->id)}}">Delete</a></button>
                 </td>
             </tr>
             @endforeach
+        @else <div>No Records</div>
+        @endif
         </tbody>
     </table>
 </body>

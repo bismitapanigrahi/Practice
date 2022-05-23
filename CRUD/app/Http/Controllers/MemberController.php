@@ -25,12 +25,17 @@ class MemberController extends Controller
      */
     public function create(Request $request)
     {
+        $request->validate ([
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10'
+        ]);
         DB::table('registered_members')->insert([
             'name' => $request->name,
             'email' => $request->email,
-            'phno' => $request->phno,
+            'phno' => $request->mobile,
         ]);
-        return redirect('home');
+        return redirect('listUsers')->with('status', 'User Added');
     }
 
     /**
@@ -76,12 +81,17 @@ class MemberController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate ([
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10'
+        ]);
         DB::table('registered_members')->where('id', $id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'phno' => $request->phno,
+            'phno' => $request->mobile,
         ]);
-        return redirect('home');
+        return redirect('listUsers')->with('status', 'User Details Updated');
     }
 
     /**
@@ -93,6 +103,6 @@ class MemberController extends Controller
     public function destroy($id)
     {
         DB::table('registered_members')->where('id', $id)->delete();
-        return redirect('home');
+        return redirect('listUsers')->with('status', 'User Deleted');
     }
 }
