@@ -10,8 +10,8 @@
 </head>
 <body>
     <div class="container mt-3 pt-2">
-        <h1 style="text-align:center">Enter Member Details: </h1><br>
-        <a style="position:absolute; right:465px" class="btn btn-info" href="listUsers">All Members</a>
+        <h1 style="text-align:center">Enter User Details: </h1><br>
+        <a style="position:absolute; right:465px" class="btn btn-info" href="/listUsers">All Users</a>
         <br><br>
         @if (session()->has('status'))
             <div style="text-align: center">

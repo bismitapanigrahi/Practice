@@ -18,6 +18,8 @@ class CreateRegisteredMembers extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phno');
+            $table->boolean('is_deleted')->default(0);
+            $table->string('deleted_at')->nullable();
             $table->timestamps();
         });
     }

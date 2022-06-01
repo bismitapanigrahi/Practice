@@ -34,8 +34,9 @@ class MemberController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phno' => $request->mobile,
+            'created_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
-        return view('create')->with('status', 'User Added');
+        return redirect('create')->with('status', 'User added!');
     }
 
     /**
@@ -44,9 +45,9 @@ class MemberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        // 
     }
 
     /**
@@ -90,8 +91,9 @@ class MemberController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phno' => $request->mobile,
+            'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
-        return redirect('listUsers')->with('status', 'User Details Updated');
+        return redirect('edit')->with('status', 'User details updated!');
     }
 
     /**
@@ -100,9 +102,20 @@ class MemberController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        DB::table('registered_members')->where('id', $id)->delete();
-        return redirect('listUsers')->with('status', 'User Deleted');
+        $is_deleted = DB::table('registered_members')->where('id', $id)->first()->is_deleted;
+        if($is_deleted){
+            DB::table('registered_members')->where('id', $id)->update([
+                'is_deleted' => 0,
+                'updated_at' => DB::raw('CURRENT_TIMESTAMP')
+            ]);
+        } else {
+            DB::table('registered_members')->where('id', $id)->update([
+                'is_deleted' => 1,
+                'deleted_at' => DB::raw('CURRENT_TIMESTAMP')
+            ]);
+        }
+        return redirect('listUsers')->with('status', 'Status Changed!');
     }
 }

@@ -10,8 +10,8 @@
 </head>
 <body>
     <div class="container mt-3 pt-2 text-center">
-        <h1>Registered Members</h1><br>
-        <a style="position:absolute; right:340px" class="btn btn-info" href="create">Create a member</a>
+        <h1>Registered Users</h1><br>
+        <a style="position:absolute; right:340px" class="btn btn-info" href="/create">Create a User</a>
         <br><br><br>
         @if (session()->has('status'))
             <div style="text-align: center">
@@ -32,6 +32,7 @@
                 <tbody>
                 @if (!$members->isEmpty())
                     @foreach ($members as $member)
+                    @if($member->is_deleted == 0)
                     <tr>
                         <td> {{$member->id}} </td>
                         <td> {{$member->name}} </td>
@@ -39,9 +40,21 @@
                         <td> {{$member->phno}} </td>
                         <td>
                             <a class="btn btn-primary" href="{{url('/edit', $member->id)}}">Edit</a>
-                            <a class="btn btn-danger" onclick="return confirm('Are you sure?')" href="{{url('/delete', $member->id)}}">Delete</a>
+                            <a class="btn btn-primary" name="action" id="action" onclick="return confirm('Are you sure?')" href="{{url('/delete', $member->id)}}">Delete</a>
                         </td>
                     </tr>
+                    @else
+                    <tr class="">
+                        <td class="text-muted"> {{$member->id}} </td>
+                        <td class="text-muted"> {{$member->name}} </td>
+                        <td class="text-muted"> {{$member->email}} </td>
+                        <td class="text-muted"> {{$member->phno}} </td>
+                        <td>
+                            <a class="btn btn-secondary disabled" href="{{url('/edit', $member->id)}}">Edit</a>
+                            <a class="btn btn-secondary" name="action" id="action" onclick="return confirm('Are you sure?')" href="{{url('/delete', $member->id)}}">Undo</a>
+                        </td>
+                    </tr>
+                    @endif
                     @endforeach
                 @else 
                     <tr>

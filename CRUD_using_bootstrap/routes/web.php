@@ -25,6 +25,7 @@ Route::get('/listUsers', function () {
 Route::get('listUsers', [MemberController::class, 'index']);
 Route::post('/create', [MemberController::class, 'create']);
 Route::view('create', 'create');
+Route::view('edit', 'edit');
 Route::get('/edit/{id}', [MemberController::class, 'edit']);
 Route::put('/edit/{id}', [MemberController::class, 'update']);
 Route::get('/delete/{id}', [MemberController::class, 'destroy']);
