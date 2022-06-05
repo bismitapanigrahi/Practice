@@ -22,24 +22,68 @@
             <form action="" method="POST" class="p-3 bg-dark">
                 @csrf
                 <div class="pt-2 m-2">
-                    <div class="form-floating p-1" style="width:300px">
-                        <input type="text" style="height:50px" class="form-control" placeholder="Enter name" name="name" id="name" value="{{old('name')}}">
-                        <label for="name">Name: </label>
-                        <span style="color: red">@error('name'){{$message}}@enderror</span><br>
+                    <div class="input-group p-1">
+                    <span class="input-group-text">Name: </span>
+                        <input type="text" style="height:50px" class="form-control" placeholder="*First name" name="firstname" id="firstname" value="{{old('firstname')}}" required>
+                        <input type="text" style="height:50px" class="form-control" placeholder="Last name" name="lastname" id="lastname" value="{{old('lastname')}}">
                     </div>
+                    <span style="color: red">@error('firstname'){{$message}}@enderror</span><br>
                 </div>
                 <div class="pt-2 m-2">
-                    <div class="form-floating p-1">
-                        <input type="email" style="height:50px" class="form-control" placeholder="Enter email" name="email" id="email" value="{{old('email')}}">
-                        <label for="email">Email: </label>
-                        <span style="color: red">@error('email'){{$message}}@enderror</span><br>
+                    <div class="input-group p-1">
+                        <span class="input-group-text">*Email: </span>
+                        <input type="email" style="height:50px" class="form-control" name="email" id="email" value="{{old('email')}}" required>
+                        <span class="input-group-text">*Mobile: </span>
+                        <input type="tel" style="height:50px" class="form-control" name="mobile" id="mobile" value="{{old('mobile')}}" required>
+                    </div>
+                    <span style="color: red">@error('email'){{$message}}@enderror @error('mobile'){{$message}}@enderror</span><br>                        
+                </div>
+                <div class="row">
+                    <div class="input-group col m-2">
+                        <div class="d-flex flex-row" style="height:45px">
+                            <span class="input-group-text">*Gender: </span>
+                            <div class="input-group-text form-check">
+                                <input type="radio" class="form-check-input" id="male" name="gender" value="Male">Male
+                                <label class="form-check-label" for="male"></label>
+                            </div>
+                            <div class="input-group-text form-check">
+                                <input type="radio" class="form-check-input" id="female" name="gender" value="Female">Female
+                                <label class="form-check-label" for="female"></label>
+                            </div>
+                        </div>
+                        <span style="color: red">@error('gender'){{$message}}@enderror</span><br>
+                    </div>
+                    <div class="col pt-2">
+                        <div class="form-floating p-1">
+                            <input type="date" style="height:45px" class="form-control" placeholder="Enter dob" name="dob" id="dob" value="{{old('dob')}}" required>
+                            <label for="name">*DOB: </label>
+                            <span style="color: red">@error('dob'){{$message}}@enderror</span><br>
+                        </div>
+                    </div>
+                    <div class="col pt-2">
+                        <div class="form-floating p-1">
+                            <textarea class="form-control" style="height:45px" id="address" name="address" placeholder="Enter Address" title="Enter your country, state and city" required>{{old('address')}}</textarea>
+                            <label for="comment">*Address: </label>
+                            <span style="color: red">@error('address'){{$message}}@enderror</span><br>
+                        </div>
                     </div>
                 </div>
-                <div class="pt-2 m-2">
+                <div class="input-group mb-4">
                     <div class="form-floating p-1">
-                        <input type="tel" style="height:50px" class="form-control" placeholder="Enter mobile" name="mobile" id="mobile" value="{{old('mobile')}}">
-                        <label for="phno">Mobile No.: </label>
-                        <span style="color: red">@error('mobile'){{$message}}@enderror</span><br>
+                        <div class="d-flex flex-row" style="height:45px">
+                        <span class="input-group-text">Highest Qualification:</span>
+                        <select class="form-select" id="qualification" name="qualification">
+                            <option value="{{NULL}}">Select</option>
+                            <option value="SSC/Matriculation">SSC/Matriculation</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Graduation">Graduation</option>
+                            <option value="Post Graduation">Post Graduation</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-floating p-1 ms-5">
+                        <input type="text" style="height:45px" class="form-control" placeholder="Enter Profession" name="profession" id="profession" value="{{old('profession')}}">
+                        <label for="name">Profession: </label>
                     </div>
                 </div>
                 <div class="row mb-2 text-center">

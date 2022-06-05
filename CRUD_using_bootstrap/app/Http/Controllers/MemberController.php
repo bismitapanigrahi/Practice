@@ -14,7 +14,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = DB::table('registered_members')->get();
+        $members = DB::table('registered_members')->paginate(3);
         return view('listUsers', ['members' => $members]);
     }
 
@@ -26,14 +26,23 @@ class MemberController extends Controller
     public function create(Request $request)
     {
         $request->validate ([
-            'name' => 'required',
+            'firstname' => 'required',
             'email' => 'required',
-            'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10'
+            'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10',
+            'gender' => 'required',
+            'dob' => 'required',
+            'address' => 'required'
         ]);
         DB::table('registered_members')->insert([
-            'name' => $request->name,
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
             'email' => $request->email,
             'phno' => $request->mobile,
+            'gender' => $request->gender,
+            'dob' => $request->dob,
+            'address' => $request->address,
+            'qualification' => $request->qualification,
+            'profession' => $request->profession,
             'created_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
         return redirect('create')->with('status', 'User added!');

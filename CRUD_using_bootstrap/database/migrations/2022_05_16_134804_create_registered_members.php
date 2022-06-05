@@ -15,9 +15,15 @@ class CreateRegisteredMembers extends Migration
     {
         Schema::create('registered_members', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('firstname');
+            $table->string('lastname')->nullable();
             $table->string('email');
             $table->string('phno');
+            $table->string('gender');
+            $table->string('dob');
+            $table->string('address');
+            $table->string('qualification')->nullable();
+            $table->string('profession')->nullable();
             $table->boolean('is_deleted')->default(0);
             $table->string('deleted_at')->nullable();
             $table->timestamps();
