@@ -5,13 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
 </head>
 <body>
     <div class="container mt-3 pt-2">
         <h1 style="text-align:center">Enter User Details: </h1><br>
-        <a style="position:absolute; right:465px" class="btn btn-info" href="/listUsers">All Users</a>
+        <a style="position:absolute; right:350px" class="btn btn-info" href="/listUsers">All Users</a>
         <br><br>
         @if (session()->has('status'))
             <div style="text-align: center">
@@ -19,82 +20,89 @@
             </div>
         @endif
         <div class="d-flex justify-content-center">
-            <form action="" method="POST" class="p-3 bg-dark">
-                @csrf
-                <div class="pt-2 m-2">
-                    <div class="input-group p-1">
-                    <span class="input-group-text">Name: </span>
-                        <input type="text" style="height:50px" class="form-control" placeholder="*First name" name="firstname" id="firstname" value="{{old('firstname')}}" required>
-                        <input type="text" style="height:50px" class="form-control" placeholder="Last name" name="lastname" id="lastname" value="{{old('lastname')}}">
-                    </div>
-                    <span style="color: red">@error('firstname'){{$message}}@enderror</span><br>
+        <form method="POST" style="width: 450px;">
+        @csrf
+            <div class="form-row mb-3">
+                <div class="col">
+                    <label for="firstname"><span style="color: red">*</span>First Name</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname" value="{{old('firstname')}}" >
+                    <span style="color: red">@error('firstname'){{$message}}@enderror</span>
                 </div>
-                <div class="pt-2 m-2">
-                    <div class="input-group p-1">
-                        <span class="input-group-text">*Email: </span>
-                        <input type="email" style="height:50px" class="form-control" name="email" id="email" value="{{old('email')}}" required>
-                        <span class="input-group-text">*Mobile: </span>
-                        <input type="tel" style="height:50px" class="form-control" name="mobile" id="mobile" value="{{old('mobile')}}" required>
-                    </div>
-                    <span style="color: red">@error('email'){{$message}}@enderror @error('mobile'){{$message}}@enderror</span><br>                        
+                <div class="col">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" name="lastname" id="lastname" value="{{old('lastname')}}">
                 </div>
-                <div class="row">
-                    <div class="input-group col m-2">
-                        <div class="d-flex flex-row" style="height:45px">
-                            <span class="input-group-text">*Gender: </span>
-                            <div class="input-group-text form-check">
-                                <input type="radio" class="form-check-input" id="male" name="gender" value="Male">Male
-                                <label class="form-check-label" for="male"></label>
-                            </div>
-                            <div class="input-group-text form-check">
-                                <input type="radio" class="form-check-input" id="female" name="gender" value="Female">Female
-                                <label class="form-check-label" for="female"></label>
-                            </div>
-                        </div>
-                        <span style="color: red">@error('gender'){{$message}}@enderror</span><br>
-                    </div>
-                    <div class="col pt-2">
-                        <div class="form-floating p-1">
-                            <input type="date" style="height:45px" class="form-control" placeholder="Enter dob" name="dob" id="dob" value="{{old('dob')}}" required>
-                            <label for="name">*DOB: </label>
-                            <span style="color: red">@error('dob'){{$message}}@enderror</span><br>
-                        </div>
-                    </div>
-                    <div class="col pt-2">
-                        <div class="form-floating p-1">
-                            <textarea class="form-control" style="height:45px" id="address" name="address" placeholder="Enter Address" title="Enter your country, state and city" required>{{old('address')}}</textarea>
-                            <label for="comment">*Address: </label>
-                            <span style="color: red">@error('address'){{$message}}@enderror</span><br>
-                        </div>
-                    </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="email"><span style="color: red">*</span>Email</label>
+                    <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" >
+                    <span style="color: red">@error('email'){{$message}}@enderror</span> 
                 </div>
-                <div class="input-group mb-4">
-                    <div class="form-floating p-1">
-                        <div class="d-flex flex-row" style="height:45px">
-                        <span class="input-group-text">Highest Qualification:</span>
-                        <select class="form-select" id="qualification" name="qualification">
-                            <option value="{{NULL}}">Select</option>
-                            <option value="SSC/Matriculation">SSC/Matriculation</option>
-                            <option value="Intermediate">Intermediate</option>
-                            <option value="Graduation">Graduation</option>
-                            <option value="Post Graduation">Post Graduation</option>
-                        </select>
-                        </div>
-                    </div>
-                    <div class="form-floating p-1 ms-5">
-                        <input type="text" style="height:45px" class="form-control" placeholder="Enter Profession" name="profession" id="profession" value="{{old('profession')}}">
-                        <label for="name">Profession: </label>
-                    </div>
+                <div class="form-group col-md-6">
+                    <label for="mobile"><span style="color: red">*</span>Mobile</label>
+                    <input type="tel" class="form-control" name="mobile" id="mobile" value="{{old('mobile')}}" >
+                    <span style="color: red">@error('mobile'){{$message}}@enderror</span>  
                 </div>
-                <div class="row mb-2 text-center">
-                    <div class="col">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                    <div class="col">
-                        <button type="reset" class="btn btn-secondary">Clear</button>
-                    </div>
+            </div>
+            <div class="form-group">
+                <label for="gender"><span style="color: red">*</span>Gender </label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="male" name="gender" value="Male">Male
                 </div>
-            </form>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" id="female" name="gender" value="Female">Female
+                </div>
+                <span style="color: red">@error('gender'){{$message}}@enderror</span>
+            </div>
+            <div class="form-group">
+                <label for="dob"><span style="color: red">*</span>DOB: </label>
+                <input type="date" class="form-control-inline" name="dob" id="dob" value="{{old('dob')}}" >
+                <span style="color: red">@error('dob'){{$message}}@enderror</span>
+            </div>
+            <div class="form-group">
+                <label for="address"><span style="color: red">*</span>Address</label>
+                <textarea class="form-control" id="address" name="address" placeholder="House no., area details" >{{old('address')}}</textarea>
+                <span style="color: red">@error('address'){{$message}}@enderror</span>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" id="city" value="{{old('city')}}">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="state">State</label>
+                    <input type="text" class="form-control" name="state" id="state" value="{{old('state')}}">
+                </div>
+                <div class="form-group col-md-3">
+                    <label for="zip">Zip</label>
+                    <input type="text" class="form-control" name="zip" id="zip" value="{{old('zip')}}">
+                </div>
+                <span style="color: red">@error('zip'){{$message}}@enderror</span>
+            </div>
+            <div class="form-group">
+                <label for="qual">Highest Qualification:</label>
+                <select class="form-select-inline" id="qualification" name="qualification">
+                    <option value="{{NULL}}">Select</option>
+                    <option value="SSC/Matriculation">SSC/Matriculation</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="Post Graduation">Post Graduation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="professiom">Profession</label>
+                <input type="text" class="form-control" name="profession" id="profession" value="{{old('profession')}}">
+            </div>
+            <div class="row mb-2 text-center">
+                <div class="col">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col">
+                    <button type="reset" class="btn btn-secondary">Clear</button>
+                </div>
+            </div>
+        </form>
         </div>
     </div>
 </body>

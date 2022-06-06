@@ -31,8 +31,13 @@ class MemberController extends Controller
             'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10',
             'gender' => 'required',
             'dob' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'zip' => 'regex:/^([0-9\s\-\+\(\)]*)$/ | digits:6'
         ]);
+        $address=[];
+        $address[]=[
+            $request->address, $request->city, $request->state, $request->zip,
+        ];
         DB::table('registered_members')->insert([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
@@ -40,12 +45,12 @@ class MemberController extends Controller
             'phno' => $request->mobile,
             'gender' => $request->gender,
             'dob' => $request->dob,
-            'address' => $request->address,
+            'address' => json_encode($address),
             'qualification' => $request->qualification,
             'profession' => $request->profession,
             'created_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
-        return redirect('create')->with('status', 'User added!');
+        return redirect()->back()->with('status', 'User added!');
     }
 
     /**
@@ -102,7 +107,7 @@ class MemberController extends Controller
             'phno' => $request->mobile,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
-        return redirect('edit')->with('status', 'User details updated!');
+        return redirect()->back()->with('status', 'User details updated!');
     }
 
     /**
@@ -125,6 +130,6 @@ class MemberController extends Controller
                 'deleted_at' => DB::raw('CURRENT_TIMESTAMP')
             ]);
         }
-        return redirect('listUsers')->with('status', 'Status Changed!');
+        return redirect()->back()->with('status', 'Status Changed!');
     }
 }
