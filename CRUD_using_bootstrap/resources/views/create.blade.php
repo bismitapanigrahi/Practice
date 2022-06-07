@@ -9,17 +9,16 @@
 </head>
 <body>
     <div class="container mt-3 pt-2">
-        <h1 style="text-align:center">Enter user details: </h1><br>
-        <a style="position:absolute; right:350px" class="btn btn-info" href="/listUsers">All users</a>
-        <br><br>
+        <h1 style="text-align:center">Enter user details</h1>
         @if (session()->has('status'))
             <div style="text-align: center; color: #009688">
                 <h5>"{{session('status')}}"</h5>
             </div>
         @endif
         <div class="d-flex justify-content-center">
-            <div class="card" style="width:550px">
-                <div class="card-body p-5">
+            <div class="card" style="width:500px">
+                <div class="card-body">
+                    <a style="float: right" href="/listUsers">All users</a><br>
                     <form method="POST" style="width: 450px;">
                         @csrf
                         <div class="form-row mb-3">
@@ -85,8 +84,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="qual">Highest qualification:</label>
-                            <select style="height: 40px; width: 172px" class="form-select-inline" id="qualification" name="qualification">
+                            <label style="width: 160px" for="qual">Highest qualification:</label>
+                            <select style="height: 40px; width: 285px" class="form-select-inline" id="qualification" name="qualification">
                                 <option value="{{NULL}}" @if(old('qualification') == '{{NULL}}') selected @endif>Select</option>
                                 <option value="SSC/Matriculation" @if(old('qualification') == 'SSC/Matriculation') selected @endif>SSC/Matriculation</option>
                                 <option value="Intermediate" @if(old('qualification') == 'Intermediate') selected @endif>Intermediate</option>
@@ -104,6 +103,9 @@
                             </div>
                             <div class="col">
                                 <a class="btn btn-secondary" href="/create">Clear</a>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-dark" href="/listUsers">Back</a>
                             </div>
                         </div>
                     </form>

@@ -10,9 +10,9 @@
 </head>
 <body>
     <div class="container mt-3 pt-2 text-center">
-        <h1>Registered users</h1><br>
-        <a style="position:absolute; right:340px" class="btn btn-info" href="/create">Create a user</a>
-        <br><br><br>
+        <h1>Registered users</h1>
+        <a style="position:absolute; right:340px" class="btn btn-info" href="/create">Create an user</a>
+        <br><br>
         @if (session()->has('status'))
             <div style="text-align: center; color: #009688">
                 <h5>"{{session('status')}}"</h5>

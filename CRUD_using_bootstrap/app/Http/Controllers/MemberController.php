@@ -14,7 +14,7 @@ class MemberController extends Controller
      */
     public function index()
     {
-        $members = DB::table('registered_members')->paginate(3);
+        $members = DB::table('registered_members')->orderBy('id', 'DESC')->paginate(5);
         return view('listUsers', ['members' => $members]);
     }
 
@@ -110,6 +110,7 @@ class MemberController extends Controller
         ]);
         DB::table('registered_members')->where('id', $id)->update([
             'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
             'email' => $request->email,
             'phno' => $request->mobile,
             'gender' => $request->gender,

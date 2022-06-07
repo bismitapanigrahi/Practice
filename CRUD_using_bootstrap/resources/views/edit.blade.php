@@ -9,17 +9,16 @@
 </head>
 <body>
     <div class="container mt-3 pt-2">
-        <h1 style="text-align:center">Edit details: </h1><br>
-        <a style="position:absolute; right:350px" class="btn btn-info" href="/listUsers">All users</a>
-        <br><br>
+        <h1 style="text-align:center">Edit details</h1>
         @if (session()->has('status'))
             <div style="text-align: center; color: #009688">
                 <h5>"{{session('status')}}"</h5>
             </div>
         @endif
         <div class="d-flex justify-content-center">
-            <div class="card" style="width:550px">
-                <div class="card-body p-5">
+            <div class="card" style="width:500px">
+                <div class="card-body">
+                    <a style="float: right" href="/listUsers">All users</a><br>
                     <form action="" method="POST" style="width: 450px;">
                         @csrf
                         @method('PUT')
@@ -86,8 +85,8 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="qual">Highest qualification:</label>
-                            <select class="form-select-inline" id="qualification" name="qualification" style="height: 40px; width: 172px">
+                            <label style="width: 160px" for="qual">Highest qualification:</label>
+                            <select class="form-select-inline" id="qualification" name="qualification" style="height: 40px; width: 285px">
                                 <option value="{{NULL}}" @if('{{NULL}}' == $member->qualification) selected @endif>Select</option>
                                 <option value="SSC/Matriculation" @if('SSC/Matriculation' == $member->qualification) selected @endif>SSC/Matriculation</option>
                                 <option value="Intermediate" @if('Intermediate' == $member->qualification) selected @endif>Intermediate</option>
