@@ -145,6 +145,6 @@ class MemberController extends Controller
                 'deleted_at' => DB::raw('CURRENT_TIMESTAMP')
             ]);
         }
-        return redirect()->back()->with('status', 'Status Changed!');
+        return redirect()->back()->with('status', 'Status changed!');
     }
 }

@@ -10,20 +10,20 @@
 </head>
 <body>
     <div class="container mt-3 pt-2 text-center">
-        <h1>Registered Users</h1><br>
-        <a style="position:absolute; right:340px" class="btn btn-info" href="/create">Create a User</a>
+        <h1>Registered users</h1><br>
+        <a style="position:absolute; right:340px" class="btn btn-info" href="/create">Create a user</a>
         <br><br><br>
         @if (session()->has('status'))
-            <div style="text-align: center">
+            <div style="text-align: center; color: #009688">
                 <h5>"{{session('status')}}"</h5>
             </div>
         @endif
         <table class="table" style="text-align: center">
-            <thead class="table-dark">
+            <thead class="table-secondary">
                 <tr>
                     <th>ID</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
                     <th>Email</th>
                     <th>Mobile No.</th>
                     <th>Gender</th>
@@ -68,7 +68,7 @@
                     <td class="text-muted"> {{$member->profession}} </td>
                     <td style="width:145px">
                         <a class="btn btn-secondary disabled" href="{{url('/edit', $member->id)}}">Edit</a>
-                        <a class="btn btn-secondary" name="action" id="action" onclick="return confirm('Are you sure?')" href="{{url('/delete', $member->id)}}">Undo</a>
+                        <a class="btn btn-primary" name="action" id="action" onclick="return confirm('Are you sure?')" href="{{url('/delete', $member->id)}}">Undo</a>
                     </td>
                 </tr>
                 @endif
