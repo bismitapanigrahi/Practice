@@ -46,7 +46,7 @@
                     <td> {{$member->phno}} </td>
                     <td> {{$member->gender}} </td>
                     <td> {{$member->dob}} </td>
-                    <td> {{$member->address}} </td>
+                    <td> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </td>
                     <td> {{$member->qualification}} </td>
                     <td> {{$member->profession}} </td>
                     <td style="width:145px">
@@ -63,10 +63,10 @@
                     <td class="text-muted"> {{$member->phno}} </td>
                     <td class="text-muted"> {{$member->gender}} </td>
                     <td class="text-muted"> {{$member->dob}} </td>
-                    <td class="text-muted"> {{$member->address}} </td>
+                    <td class="text-muted"> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </td>
                     <td class="text-muted"> {{$member->qualification}} </td>
                     <td class="text-muted"> {{$member->profession}} </td>
-                    <td>
+                    <td style="width:145px">
                         <a class="btn btn-secondary disabled" href="{{url('/edit', $member->id)}}">Edit</a>
                         <a class="btn btn-secondary" name="action" id="action" onclick="return confirm('Are you sure?')" href="{{url('/delete', $member->id)}}">Undo</a>
                     </td>

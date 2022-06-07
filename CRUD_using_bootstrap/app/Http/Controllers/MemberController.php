@@ -32,12 +32,10 @@ class MemberController extends Controller
             'gender' => 'required',
             'dob' => 'required',
             'address' => 'required',
-            'zip' => 'regex:/^([0-9\s\-\+\(\)]*)$/ | digits:6'
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:6'
         ]);
-        $address=[];
-        $address[]=[
-            $request->address, $request->city, $request->state, $request->zip,
-        ];
         DB::table('registered_members')->insert([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
@@ -45,7 +43,10 @@ class MemberController extends Controller
             'phno' => $request->mobile,
             'gender' => $request->gender,
             'dob' => $request->dob,
-            'address' => json_encode($address),
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'zip' => $request->zip,
             'qualification' => $request->qualification,
             'profession' => $request->profession,
             'created_at' => DB::raw('CURRENT_TIMESTAMP')
@@ -97,14 +98,28 @@ class MemberController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate ([
-            'name' => 'required',
+            'firstname' => 'required',
             'email' => 'required',
-            'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10'
+            'mobile' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:10',
+            'gender' => 'required',
+            'dob' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required | regex:/^([0-9\s\-\+\(\)]*)$/ | digits:6'
         ]);
         DB::table('registered_members')->where('id', $id)->update([
-            'name' => $request->name,
+            'firstname' => $request->firstname,
             'email' => $request->email,
             'phno' => $request->mobile,
+            'gender' => $request->gender,
+            'dob' => $request->dob,
+            'address' => $request->address,
+            'city' => $request->city,
+            'state' => $request->state,
+            'zip' => $request->zip,
+            'qualification' => $request->qualification,
+            'profession' => $request->profession,
             'updated_at' => DB::raw('CURRENT_TIMESTAMP')
         ]);
         return redirect()->back()->with('status', 'User details updated!');

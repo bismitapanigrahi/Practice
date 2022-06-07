@@ -22,6 +22,9 @@ class CreateRegisteredMembers extends Migration
             $table->string('gender');
             $table->string('dob');
             $table->string('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip');
             $table->string('qualification')->nullable();
             $table->string('profession')->nullable();
             $table->boolean('is_deleted')->default(0);
