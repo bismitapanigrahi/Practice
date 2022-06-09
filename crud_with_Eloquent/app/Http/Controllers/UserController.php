@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $members = Registered_User::paginate(5);
+        $members = Registered_User::orderBy('id', 'DESC')->paginate(5);
         return view('listUsers', ['members' => $members]);
     }
 
