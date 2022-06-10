@@ -102,6 +102,9 @@
                             <div class="col">
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
+                            <div class="col">
+                                <a class="btn btn-dark" href="/listUsers">Back</a>
+                            </div>
                         </div>
                     </form>
                 </div>
