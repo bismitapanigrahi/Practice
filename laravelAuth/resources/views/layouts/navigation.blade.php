@@ -15,12 +15,6 @@
                     <!-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link> -->
-                    <x-nav-link :href="route('listUsers')" :active="request()->routeIs('listUsers')">
-                        {{ __('All users') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('create')" :active="request()->routeIs('create')">
-                        {{ __('Create user') }}
-                    </x-nav-link>
                 </div>
             </div>
 
@@ -40,6 +34,14 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('listUsers')"
+                            :active="request()->routeIs('listUsers')">
+                            {{ __('All users') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('create')"
+                            :active="request()->routeIs('create')">
+                            {{ __('Create user') }}
+                        </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf

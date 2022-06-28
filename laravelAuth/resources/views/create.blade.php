@@ -19,7 +19,6 @@
         <div class="d-flex justify-content-center">
             <div class="card" style="width:500px">
                 <div class="card-body">
-                    <a style="float: right" href="/listUsers">All users</a><br>
                     <form method="POST" style="width: 450px;">
                         @csrf
                         <div class="form-row mb-3">

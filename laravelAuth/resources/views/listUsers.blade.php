@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container mt-3 pt-2 text-center">
-        <h1>Registered users</h1>
+        <h3>Registered users</h3>
         <br>
         @if (session()->has('status'))
             <div style="text-align: center; color: #009688">

@@ -1,11 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
-
+        <h3 style="font-size: 25px; font-weight: bold;">Forgot password?</h3><br>
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
         </div>
@@ -27,7 +22,10 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
+                    {{ __('Already registered?') }}
+                </a>
+                <x-button class="ml-3">
                     {{ __('Email Password Reset Link') }}
                 </x-button>
             </div>
