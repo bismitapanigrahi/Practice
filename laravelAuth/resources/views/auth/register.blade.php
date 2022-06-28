@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-    <h3 style="font-size: 25px; font-weight: bold;">Register:</h3><br>
+        <h3 style="font-size: 25px; font-weight: bold;">Register:</h3><br>
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
