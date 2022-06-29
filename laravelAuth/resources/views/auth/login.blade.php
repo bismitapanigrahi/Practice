@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-auth-card>
-        <h3 style="font-size: 25px; font-weight: bold;">Login:</h3><br>
+        <h3 style="font-size: 25px; font-weight: bold;">Login</h3><br>
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
         

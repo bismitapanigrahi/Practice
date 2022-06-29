@@ -19,16 +19,16 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/', function () {
-    return view('listUsers');
+    return redirect('/listUsers');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 Route::group(['middleware'=>['auth']], function(){
     Route::get('/listUsers', function () {
-        return view('listUsers');
+        return view('/listUsers');
     });
-    Route::get('listUsers', [UserController::class, 'index'])->name('listUsers');
+    Route::get('/listUsers', [UserController::class, 'index'])->name('listUsers');
     Route::view('/create', '/create')->name('create');
     Route::post('/create', [UserController::class, 'create']);
     Route::view('/edit', '/edit');

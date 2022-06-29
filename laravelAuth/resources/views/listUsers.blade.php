@@ -12,12 +12,12 @@
 </head>
 <body>
     <div class="min-h-screen flex flex-col sm:justify-center items-center bg-gray-100">
-        <div class="px-3 py-3 bg-white shadow-md sm:rounded-lg">
+        <div class="w-full px-3 py-3 bg-white shadow-md sm:rounded-lg">
             <h3 style="text-align: center;">Registered users</h3>
             <br>
             @if (session()->has('status'))
                 <div style="text-align: center; color: #009688">
-                    <h5>"{{session('status')}}"</h5>
+                    <h5>{{session('status')}}</h5>
                 </div>
             @endif
             <table class="table" style="text-align: center">
@@ -51,7 +51,7 @@
                         <td> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </td>
                         <td> {{$member->qualification}} </td>
                         <td> {{$member->profession}} </td>
-                        <td>
+                        <td style="width: 210px">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal{{$member->id}}">
                                 View
                             </button>
@@ -181,7 +181,7 @@
                         <td class="text-muted"> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </td>
                         <td class="text-muted"> {{$member->qualification}} </td>
                         <td class="text-muted"> {{$member->profession}} </td>
-                        <td>
+                        <td style="width: 210px">
                             <button type="button" class="btn btn-secondary disabled" data-bs-toggle="modal" data-bs-target="#myModal{{$member->id}}">
                                 View
                             </button>
@@ -198,7 +198,9 @@
                 @endif
                 </tbody>
             </table>
-            <span> {{$members -> links("pagination::bootstrap-4")}} </span>
+            <div class="d-flex justify-content-center">
+                {{$members -> links("pagination::bootstrap-4")}} 
+            </div>
             <style>
                 .w-5 {
                     width: 25px;

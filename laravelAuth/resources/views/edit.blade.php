@@ -10,13 +10,13 @@
 </head>
 <body>
     <x-auth-card>
-        <h3>Edit details:</h3><br>
+        <h3>Edit details</h3><br>
 
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
             
         @if (session()->has('status'))
             <div style="text-align: center; color: #009688">
-                <h5>"{{session('status')}}"</h5>
+                <h5>{{session('status')}}</h5>
             </div>
         @endif
 
