@@ -19,7 +19,7 @@ use App\Http\Controllers\UserController;
 // });
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('listUsers');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';

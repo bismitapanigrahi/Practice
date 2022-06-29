@@ -9,109 +9,113 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <div class="container mt-3 pt-2">
-        <h1 style="text-align:center">Enter user details</h1>
+    <x-auth-card>
+        <h3>Enter user details:</h3><br>
+
+        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+            
         @if (session()->has('status'))
             <div style="text-align: center; color: #009688">
                 <h5>"{{session('status')}}"</h5>
             </div>
         @endif
-        <div class="d-flex justify-content-center">
-            <div class="card" style="width:500px">
-                <div class="card-body">
-                    <form method="POST" style="width: 450px;">
-                        @csrf
-                        <div class="form-row mb-3">
-                            <div class="col">
-                                <label for="firstname"><span style="color: red">*</span>First name</label>
-                                <input type="text" class="form-control" name="firstname" id="firstname" value="{{old('firstname')}}" >
-                                <span style="color: red">@error('firstname'){{$message}}@enderror</span>
-                            </div>
-                            <div class="col">
-                                <label for="lastname">Last name</label>
-                                <input type="text" class="form-control" name="lastname" id="lastname" value="{{old('lastname')}}">
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="email"><span style="color: red">*</span>Email</label>
-                                <input type="email" class="form-control" name="email" id="email" value="{{old('email')}}" >
-                                <span style="color: red">@error('email'){{$message}}@enderror</span> 
-                            </div>
-                            <div class="form-group col-md-6 mb-4">
-                                <label for="mobile"><span style="color: red">*</span>Mobile</label>
-                                <input type="tel" class="form-control" name="mobile" id="mobile" value="{{old('mobile')}}" >
-                                <span style="color: red">@error('mobile'){{$message}}@enderror</span>  
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <label for="gender"><span style="color: red">*</span>Gender </label>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="male" name="gender" value="Male" @if(old('gender') == 'Male') checked @endif>Male
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="female" name="gender" value="Female" @if(old('gender') == 'Female') checked @endif>Female
-                                </div>
-                                <span style="color: red">@error('gender'){{$message}}@enderror</span>
-                            </div>
-                            <div class="form-group col">
-                                <label for="dob"><span style="color: red">*</span>DOB: </label>
-                                <input type="date" style="height: 40px; width: 172px" class="form-control-inline" name="dob" id="dob" value="{{old('dob')}}" >
-                                <span style="color: red">@error('dob'){{$message}}@enderror</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="address"><span style="color: red">*</span>Address</label>
-                            <textarea class="form-control" id="address" name="address" placeholder="House no., area details" >{{old('address')}}</textarea>
-                            <span style="color: red">@error('address'){{$message}}@enderror</span>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-5">
-                                <label for="city"><span style="color: red">*</span>City</label>
-                                <input type="text" class="form-control" name="city" id="city" value="{{old('city')}}">
-                                <span style="color: red">@error('city'){{$message}}@enderror</span>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="state"><span style="color: red">*</span>State</label>
-                                <input type="text" class="form-control" name="state" id="state" value="{{old('state')}}">
-                                <span style="color: red">@error('state'){{$message}}@enderror</span>
-                            </div>
-                            <div class="form-group col-md-3 mb-4">
-                                <label for="zip"><span style="color: red">*</span>Zip</label>
-                                <input type="text" class="form-control" name="zip" id="zip" value="{{old('zip')}}">
-                                <span style="color: red">@error('zip'){{$message}}@enderror</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label style="width: 160px" for="qual">Highest qualification:</label>
-                            <select style="height: 40px; width: 285px" class="form-select-inline" id="qualification" name="qualification">
-                                <option value="{{NULL}}" @if(old('qualification') == '{{NULL}}') selected @endif>Select</option>
-                                <option value="SSC/Matriculation" @if(old('qualification') == 'SSC/Matriculation') selected @endif>SSC/Matriculation</option>
-                                <option value="Intermediate" @if(old('qualification') == 'Intermediate') selected @endif>Intermediate</option>
-                                <option value="Graduation" @if(old('qualification') == 'Graduation') selected @endif>Graduation</option>
-                                <option value="Post graduation" @if(old('qualification') == 'Post graduation') selected @endif>Post graduation</option>
-                            </select>
-                        </div>
-                        <div class="form-group mb-5">
-                            <label for="professiom">Profession</label>
-                            <input type="text" class="form-control" name="profession" id="profession" value="{{old('profession')}}">
-                        </div>
-                        <div class="row text-center">
-                            <div class="col">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                            <div class="col">
-                                <a class="btn btn-secondary" href="/create">Clear</a>
-                            </div>
-                            <div class="col">
-                                <a class="btn btn-dark" href="/listUsers">Back</a>
-                            </div>
-                        </div>
-                    </form>
+
+        <form method="POST" action="{{ route('create') }}">
+            @csrf
+
+            <div class="form-row">
+                <div class="col">
+                    <x-label for="firstname" :value="__('Firstname')" />
+                    <x-input type="text" class="form-control" name="firstname" id="firstname" :value="old('firstname')" required autofocus />
+                </div>
+                <div class="col">
+                    <x-label for="lastname" :value="__('Lastname')" />
+                    <x-input type="text" class="form-control" name="lastname" id="lastname" :value="old('lastname')" />
                 </div>
             </div>
-        </div>
-    </div>
+
+            <div class="mt-4">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <x-label for="email" :value="__('Email')" />
+                        <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
+                    </div>
+                    <div class="form-group col">
+                        <x-label for="mobile" :value="__('Mobile')" />
+                        <x-input id="mobile" class="form-control" type="tel" name="mobile" :value="old('mobile')" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <x-label for="gender" :value="__('Gender')" />
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="male" name="gender" value="Male" @if(old('gender') == 'Male') checked @endif required>Male
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="female" name="gender" value="Female" @if(old('gender') == 'Female') checked @endif>Female
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <x-label for="dob" :value="__('DOB')" />
+                        <x-input id="dob" class="form-control-inline block mt-1 w-full" type="date" name="dob" :value="old('dob')" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <x-label for="address" :value="__('Address')" />
+                <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required />
+            </div>
+
+            <div class="mt-4">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <x-label for="city" :value="__('City')" />
+                        <x-input type="text" class="form-control" name="city" id="city" :value="old('city')" required />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <x-label for="state" :value="__('State')" />
+                        <x-input type="text" class="form-control" name="state" id="state" :value="old('state')" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <x-label for="zip" :value="__('Zip')" />
+                        <x-input type="text" class="form-control" name="zip" id="zip" :value="old('zip')" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <x-label for="qual" :value="__('Highest qualification')" />
+                        <select class="form-select-inline block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" 
+                            id="qualification" name="qualification">
+                            <option value="{{NULL}}" @if(old('qualification') == '{{NULL}}') selected @endif>Select</option>
+                            <option value="SSC/Matriculation" @if(old('qualification') == 'SSC/Matriculation') selected @endif>SSC/Matriculation</option>
+                            <option value="Intermediate" @if(old('qualification') == 'Intermediate') selected @endif>Intermediate</option>
+                            <option value="Graduation" @if(old('qualification') == 'Graduation') selected @endif>Graduation</option>
+                            <option value="Post graduation" @if(old('qualification') == 'Post graduation') selected @endif>Post graduation</option>
+                        </select>    
+                    </div>
+                    <div class="form-group col">
+                        <x-label for="professiom" :value="__('Profession')" />
+                        <x-input id="profession" class="block mt-1 w-full" type="text" name="profession" :value="old('profession')" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end mt-4">
+                <a class="bg-secondary inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150" 
+                href="/create">Clear</a>
+
+                <x-button class="ml-4">
+                    {{ __('Submit') }}
+                </x-button>
+            </div>
+        </form>
+    </x-auth-card>
 </body>
 </html>
