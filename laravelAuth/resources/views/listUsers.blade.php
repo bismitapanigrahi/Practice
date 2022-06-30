@@ -2,17 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="{{asset('bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+       
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="{{asset('bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+
     <title>List of Users</title>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <div class="min-h-screen flex flex-col sm:justify-center items-center bg-gray-100">
-        <div class="w-full px-3 py-3 bg-white shadow-md sm:rounded-lg">
+        <div class="px-3 py-3 bg-white shadow-md sm:rounded-lg">
             <h3 style="text-align: center;">Registered users</h3>
             <br>
             @if (session()->has('status'))
@@ -42,16 +46,16 @@
                     @if($member->is_deleted == 0)
                     <tr>
                         <td> {{$member->id}} </td>
-                        <td> {{$member->firstname}} </td>
-                        <td> {{$member->lastname}} </td>
-                        <td> {{$member->email}} </td>
+                        <td><div style="width: 90px; word-wrap: break-word"> {{$member->firstname}} </div></td>
+                        <td><div style="width: 90px; word-wrap: break-word"> {{$member->lastname}} </div></td>
+                        <td><div style="width: 100px; word-wrap: break-word"> {{$member->email}} </div></td>
                         <td> {{$member->phno}} </td>
                         <td> {{$member->gender}} </td>
-                        <td> {{$member->dob}} </td>
-                        <td> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </td>
-                        <td> {{$member->qualification}} </td>
-                        <td> {{$member->profession}} </td>
-                        <td style="width: 210px">
+                        <td><div style="width: 85px;"> {{$member->dob}} </div></td>
+                        <td><div style="width: 90px; word-wrap: break-word"> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </div></td>
+                        <td><div style="width: 90px; word-wrap: break-word"> {{$member->qualification}} </div></td>
+                        <td><div style="width: 90px; word-wrap: break-word"> {{$member->profession}} </div></td>
+                        <td>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal{{$member->id}}">
                                 View
                             </button>
@@ -158,7 +162,6 @@
 
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <a class="btn btn-primary" href="{{url('/edit', $member->id)}}">Edit</a>
                                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                                         </div>
 
@@ -172,16 +175,16 @@
                     @else
                     <tr>
                         <td class="text-muted"> {{$member->id}} </td>
-                        <td class="text-muted"> {{$member->firstname}} </td>
-                        <td class="text-muted"> {{$member->lastname}} </td>
-                        <td class="text-muted"> {{$member->email}} </td>
+                        <td class="text-muted"><div style="width: 90px; word-wrap: break-word"> {{$member->firstname}} </div></td>
+                        <td class="text-muted"><div style="width: 90px; word-wrap: break-word"> {{$member->lastname}} </div></td>
+                        <td class="text-muted"><div style="width: 100px; word-wrap: break-word"> {{$member->email}} </div></td>
                         <td class="text-muted"> {{$member->phno}} </td>
                         <td class="text-muted"> {{$member->gender}} </td>
-                        <td class="text-muted"> {{$member->dob}} </td>
-                        <td class="text-muted"> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </td>
-                        <td class="text-muted"> {{$member->qualification}} </td>
-                        <td class="text-muted"> {{$member->profession}} </td>
-                        <td style="width: 210px">
+                        <td class="text-muted"><div style="width: 85px;"> {{$member->dob}} </div></td>
+                        <td class="text-muted"><div style="width: 90px; word-wrap: break-word"> {{$member->address}} {{$member->city}} {{$member->state}} {{$member->zip}} </div></td>
+                        <td class="text-muted"><div style="width: 90px; word-wrap: break-word"> {{$member->qualification}} </div></td>
+                        <td class="text-muted"><div style="width: 90px; word-wrap: break-word"> {{$member->profession}} </div></td>
+                        <td>
                             <button type="button" class="btn btn-secondary disabled" data-bs-toggle="modal" data-bs-target="#myModal{{$member->id}}">
                                 View
                             </button>
