@@ -32,26 +32,25 @@
                 <div class="col">
                     <x-label for="firstname" :value="__('Firstname')" />
                     <x-input type="text" class="form-control" name="firstname" id="firstname" :value="old('firstname')" required autofocus />
-                    <span class="text-red-600">@error('firstname'){{$message}}@enderror</span>
                 </div>
                 <div class="col">
                     <x-label for="lastname" :value="__('Lastname')" />
                     <x-input type="text" class="form-control" name="lastname" id="lastname" :value="old('lastname')" />
                 </div>
             </div>
+            <span class="text-red-600">@error('firstname'){{$message}}@enderror</span>
 
             <div class="mt-4">
                 <div class="form-row">
                     <div class="form-group col">
                         <x-label for="email" :value="__('Email')" />
                         <x-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
-                        <span class="text-red-600">@error('email'){{$message}}@enderror</span> 
                     </div>
                     <div class="form-group col">
                         <x-label for="mobile" :value="__('Mobile')" />
                         <x-input id="mobile" class="form-control" type="tel" name="mobile" :value="old('mobile')" required />
-                        <span class="text-red-600">@error('mobile'){{$message}}@enderror</span>  
                     </div>
+                    <span class="text-red-600">@error('email'){{$message}}@enderror @error('mobile'){{$message}}@enderror</span> 
                 </div>
             </div>
 
@@ -65,13 +64,12 @@
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" id="female" name="gender" value="Female" @if(old('gender') == 'Female') checked @endif>Female
                         </div>
-                        <span class="text-red-600">@error('gender'){{$message}}@enderror</span>
                     </div>
                     <div class="form-group col">
                         <x-label for="dob" :value="__('DOB')" />
                         <x-input id="dob" class="form-control-inline block mt-1 w-full" type="date" name="dob" :value="old('dob')" required />
-                        <span class="text-red-600">@error('dob'){{$message}}@enderror</span>
                     </div>
+                    <span class="text-red-600">@error('gender'){{$message}}@enderror @error('dob'){{$message}}@enderror</span>
                 </div>
             </div>
 
@@ -86,18 +84,16 @@
                     <div class="form-group col-md-5">
                         <x-label for="city" :value="__('City')" />
                         <x-input type="text" class="form-control" name="city" id="city" :value="old('city')" required />
-                        <span class="text-red-600">@error('city'){{$message}}@enderror</span>
                     </div>
                     <div class="form-group col-md-4">
                         <x-label for="state" :value="__('State')" />
                         <x-input type="text" class="form-control" name="state" id="state" :value="old('state')" required />
-                        <span class="text-red-600">@error('state'){{$message}}@enderror</span>
                     </div>
                     <div class="form-group col-md-3">
                         <x-label for="zip" :value="__('Zip')" />
                         <x-input type="text" class="form-control" name="zip" id="zip" :value="old('zip')" required />
-                        <span class="text-red-600">@error('zip'){{$message}}@enderror</span>
                     </div>
+                    <span class="text-red-600">@error('city'){{$message}}@enderror @error('state'){{$message}}@enderror @error('zip'){{$message}}@enderror</span>
                 </div>
             </div>
 
